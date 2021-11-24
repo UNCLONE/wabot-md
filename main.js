@@ -44,7 +44,7 @@ const start = async () => {
         }
     })
 
-    chika.ev.on('creds.update', () => saveState)
+    ltzx.ev.on('creds.update', () => saveState)
 
     return ltzx
 }
