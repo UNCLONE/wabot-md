@@ -24,7 +24,7 @@ moment.tz.setDefault("Asia/Jakarta").locale("id");
      
 module.exports = async(ltzx, msg, m) => {
 
-    const chika = ltzx
+    let chika = ltzx
 
     try {
         const time = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('HH:mm:ss z')
