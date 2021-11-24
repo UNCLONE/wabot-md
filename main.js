@@ -1,24 +1,28 @@
+/*
+Numpang Recode bang github: rashidsiregar28
+*/
+
 "use strict";
 const { default: makeWASocket, BufferJSON, initInMemoryKeyStore, DisconnectReason, AnyMessageContent, delay, useSingleFileAuthState } = require("@adiwajshing/baileys-md")
 const figlet = require("figlet");
 const fs = require("fs");
 const P = require('pino')
-const { color, ChikaLog } = require("./lib/color");
+const { color, BotLog } = require("./lib/color");
 let setting = JSON.parse(fs.readFileSync('./config.json'));
 let sesion = `./${setting.sessionName}.json`
 const { state, saveState } = useSingleFileAuthState(sesion)
 
 const start = async () => {
     //Meng weem
-	console.log(color(figlet.textSync('Chika Bot MD', {
+	console.log(color(figlet.textSync(setting.botName + ' MD', {
 		font: 'Standard',
 		horizontalLayout: 'default',
 		vertivalLayout: 'default',
 		whitespaceBreak: false
 	}), 'cyan'))
-	console.log(color('[ By Rashidsiregar28 ]'))
-    // set level pino ke fatal kalo ga mau nampilin log eror
-    const chika = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'warn' }), browser: [`${setting.botName} By ChikaBot-MD`], auth: state }) 
+	console.log(color('[ By Akmalz ]'))
+    // set level pino ke 'fatal' kalo ga mau nampilin log eror
+    const chika = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'warn' }), browser: [`${setting.botName} By Akmalz`], auth: state }) 
     console.log(color('Connected....'))
     chika.multi = true
     chika.nopref = false
