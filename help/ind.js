@@ -83,7 +83,7 @@ exports.listMenu = (time, date, salam, pushname, prefix, regUser) => {
 
 • *Time : ${time}*
 • *Date : ${date}*
-• *User : ${regUser}*
+• *User : ${regUser} User*
 
 *📚 List-Menu Chika Beta :*
 
