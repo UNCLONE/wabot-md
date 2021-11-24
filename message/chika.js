@@ -164,7 +164,7 @@ module.exports = async(chika, msg, m) => {
 	switch (command) {
             //Sistem Command
             case prefix+'rule': case prefix+'rules':
-                textImg(ind.rules(prefix))
+                textImg(ind.rules(prefix, botName))
             break
             case prefix+'tos': case prefix+'donate': case prefix+'donasi':
                 textImg(ind.tos(ownerNumber[0].split('@')[0], prefix))
