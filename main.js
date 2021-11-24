@@ -22,20 +22,20 @@ const start = async () => {
 	}), 'cyan'))
 	console.log(color('[ By Akmalz ]'))
     // set level pino ke 'fatal' kalo ga mau nampilin log eror
-    const chika = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'warn' }), browser: [`${setting.botName} By Akmalz`], auth: state }) 
+    const ltzx = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'warn' }), browser: [`${setting.botName} By Akmalz`], auth: state }) 
     console.log(color('Connected....'))
-    chika.multi = true
-    chika.nopref = false
-    chika.prefa = 'anjing'
+    ltzx.multi = true
+    ltzx.nopref = false
+    ltzx.prefa = 'anjing'
 
-    chika.ev.on('messages.upsert', async m => {
+    ltzx.ev.on('messages.upsert', async m => {
     	if (!m.messages) return
         const msg = m.messages[0]
         if (!msg.message) return
-        require('./message/chika')(chika, msg, m)
+        require('./message/index')(ltzx, msg, m)
     })
 
-    chika.ev.on('connection.update', (update) => {
+    ltzx.ev.on('connection.update', (update) => {
         const { connection, lastDisconnect } = update
         if (connection === 'close') {
             console.log(BotLog('Koneksi terputus....'))
@@ -46,7 +46,7 @@ const start = async () => {
 
     chika.ev.on('creds.update', () => saveState)
 
-    return chika
+    return ltzx
 }
 
 start()
