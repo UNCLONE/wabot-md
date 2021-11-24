@@ -38,7 +38,7 @@ const start = async () => {
     chika.ev.on('connection.update', (update) => {
         const { connection, lastDisconnect } = update
         if (connection === 'close') {
-            console.log(ChikaLog('Koneksi terputus....'))
+            console.log(BotLog('Koneksi terputus....'))
             if (lastDisconnect.error?.output?.statusCode === DisconnectReason.loggedOut) console.log(BotLog('Wa web terlogout.'))
             else start()
         }
