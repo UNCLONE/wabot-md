@@ -207,7 +207,7 @@ module.exports = async(ltzx, msg, m) => {
                 } catch {
                     var prof = 'https://i.ibb.co/Tq7d7TZ/age-hananta-495-photo.png'
                 }
-                sendFileFromUrl(from, prof, ind.listMenu(time, date, salam, pushname, prefix), msg)
+                sendFileFromUrl(from, prof, ind.listMenu(time, date, salam, pushname, prefix, regUser), msg)
             }
             break
             // Owner
