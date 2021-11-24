@@ -37,10 +37,8 @@
 
 # ChikaBot Whatsapp MD
 ## Information
-> Chikabot whatsapp using a Baileys library.
-> Jika kamu menemukan semacam bug, harap untuk dimaklumi sementara
->
->
+> Chikabot whatsapp using a Baileys-MD library.
+> Jika kamu menemukan semacam bug, harap untuk dimaklumi
 
 ## Bugs and Tester
 * Jika kamu menemukan bug jangan lupa buka Issues
