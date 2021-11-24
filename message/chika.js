@@ -24,7 +24,8 @@ moment.tz.setDefault("Asia/Jakarta").locale("id");
      
 module.exports = async(chika, msg, m) => {
     try {
-        const time = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('DD/MM/YY HH:mm:ss z')
+        const time = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('HH:mm:ss z')
+        const date = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('DD-MM-YYYY')
         const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
         const fromMe = msg.key.fromMe
 	const from = msg.key.remoteJid
@@ -192,7 +193,7 @@ module.exports = async(chika, msg, m) => {
                 } catch {
                     var prof = 'https://i.ibb.co/Tq7d7TZ/age-hananta-495-photo.png'
                 }
-                sendFileFromUrl(from, prof, ind.listMenu(time, salam, pushname, prefix), msg)
+                sendFileFromUrl(from, prof, ind.listMenu(time, date, salam, pushname, prefix), msg)
             }
             break
             // Owner
