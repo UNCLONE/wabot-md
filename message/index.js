@@ -179,14 +179,15 @@ module.exports = async(ltzx, msg, m) => {
             break
             case prefix+'menu': case prefix+'help':{
                 // I try buttonMessage in personal chats, not responding :(
+                const menyo = `Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp. Jika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏`
                 if (isGroup) {
                     let buttons = [
                         {buttonId: `${prefix}allmenu`, buttonText: {displayText: '🔍 List Menu'}, type: 1},
                         {buttonId: `${prefix}rule`, buttonText: {displayText: '🎛️ Rules Bot' }, type: 1}
                     ]
-                    sendButton('location', from, `Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp. Jika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏`, buttons)
+                    sendButton('location', from, menyo, buttons)
                } else {
-                   textImg(`Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp. \nJika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏\n\nKetik *${prefix}allmenu* untuk melihat list fitur bot`)
+                   textImg(menyo)
                 }
             }
             break
