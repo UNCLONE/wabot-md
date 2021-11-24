@@ -87,45 +87,45 @@ exports.listMenu = (time, date, salam, pushname, prefix) => {
 *📚 List-Menu Chika Beta :*
 
 🤖 *INFO*
-• *${i+=1}.* ${prefix}owner
-• *${i+=1}.* ${prefix}rules
-• *${i+=1}.* ${prefix}donate
+*${i+=1}.* ${prefix}owner
+*${i+=1}.* ${prefix}rules
+*${i+=1}.* ${prefix}donate
 
 🧑 *OWNER*
-• *${i+=1}.* > *evaluate*
-• *${i+=1}.* $ *exec*
-• *${i+=1}.* ${prefix}join *link*
-• *${i+=1}.* ${prefix}setppbot *(tag/send image)*
+*${i+=1}.* > *evaluate*
+*${i+=1}.* $ *exec*
+*${i+=1}.* ${prefix}join *link*
+*${i+=1}.* ${prefix}setppbot *(tag/send image)*
 
 ⚙️ *GROUP*
-• *${i+=1}.* ${prefix}revoke
-• *${i+=1}.* ${prefix}leave
-• *${i+=1}.* ${prefix}group *open/close*
+*${i+=1}.* ${prefix}revoke
+*${i+=1}.* ${prefix}leave
+*${i+=1}.* ${prefix}group *open/close*
 
 😷 *WEEBS*
-• *${i+=1}.* ${prefix}anime *query*
-• *${i+=1}.* ${prefix}manga *query*
-• *${i+=1}.* ${prefix}character *query*
+*${i+=1}.* ${prefix}anime *query*
+*${i+=1}.* ${prefix}manga *query*
+*${i+=1}.* ${prefix}character *query*
 
 🔍 *MISC*
-• *${i+=1}.* ${prefix}film *query*
-• *${i+=1}.* ${prefix}wattpad *query*
-• *${i+=1}.* ${prefix}webtoons *query*
-• *${i+=1}.* ${prefix}drakor *query*
-• *${i+=1}.* ${prefix}pinterest *query*
+*${i+=1}.* ${prefix}film *query*
+*${i+=1}.* ${prefix}wattpad *query*
+*${i+=1}.* ${prefix}webtoons *query*
+*${i+=1}.* ${prefix}drakor *query*
+*${i+=1}.* ${prefix}pinterest *query*
 
 🎞 *MEDIA*
-• *${i+=1}.* ${prefix}toimg *(tag sticker)*
+*${i+=1}.* ${prefix}toimg *(tag sticker)*
 
 ⬇️ *DOWNLOADER* 
-• *${i+=1}.* ${prefix}tiktok *link*
-• *${i+=1}.* ${prefix}ytdl *link*
-• *${i+=1}.* ${prefix}ytmp3 *link*
-• *${i+=1}.* ${prefix}ytmp4 *link*
-• *${i+=1}.* ${prefix}ytdl *link*
-• *${i+=1}.* ${prefix}facebook *link*
-• *${i+=1}.* ${prefix}twitter *link*
-• *${i+=1}.* ${prefix}instagram *link*
+*${i+=1}.* ${prefix}tiktok *link*
+*${i+=1}.* ${prefix}ytdl *link*
+*${i+=1}.* ${prefix}ytmp3 *link*
+*${i+=1}.* ${prefix}ytmp4 *link*
+*${i+=1}.* ${prefix}ytdl *link*
+*${i+=1}.* ${prefix}facebook *link*
+*${i+=1}.* ${prefix}twitter *link*
+*${i+=1}.* ${prefix}instagram *link*
 
 🙏 *THANKS*
 • Xfarr api
