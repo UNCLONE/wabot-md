@@ -1,5 +1,5 @@
 {
-  "name": "wa-chika-md",
+  "name": "ltzx-botmd",
   "version": "1.0.0",
   "description": "Simple whatsapp bot with multi device.",
   "main": "main.js",
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node main.js"
   },
-  "author": "rashidsiregar28",
+  "author": "akmalz",
   "license": "MIT",
   "dependencies": {
     "@adiwajshing/baileys-md": "github:adiwajshing/baileys#multi-device",
