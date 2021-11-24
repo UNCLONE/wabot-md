@@ -76,13 +76,14 @@ exports.notNum = (q) => {
     return `"${q}", bukan angka!`
 }
 
-exports.listMenu = (time, date, salam, pushname, prefix) => {
+exports.listMenu = (time, date, salam, pushname, prefix, regUser) => {
    let i = 0
     return `
-*Selamat ${salam} ${pushname} 😖*
+*Selamat ${salam} ${pushname} 👋*
 
 • *Time : ${time}*
 • *Date : ${date}*
+• *User : ${regUser}*
 
 *📚 List-Menu Chika Beta :*
 
