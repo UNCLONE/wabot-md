@@ -76,70 +76,65 @@ exports.notNum = (q) => {
     return `"${q}", bukan angka!`
 }
 
-exports.listMenu = (time, salam, pushname, prefix) => {
+exports.listMenu = (time, date, salam, pushname, prefix) => {
+   let i = 0
     return `
 *Selamat ${salam} ${pushname} 😖*
-*⌚Time Server : ${time}*
+
+• *Time : ${time}*
+• *Date : ${date}*
+
 *📚 List-Menu Chika Beta :*
 
 🤖 *INFO*
-├ ${prefix}owner
-├ ${prefix}rules
-├ ${prefix}donate
-└──────
+• *${i+=1}.* ${prefix}owner
+• *${i+=1}.* ${prefix}rules
+• *${i+=1}.* ${prefix}donate
 
 🧑 *OWNER*
-├ > evaluate
-├ $ exec
-├ ${prefix}join link
-├ ${prefix}setppbot (tag/send image)
-└──────
+• *${i+=1}.* > *evaluate*
+• *${i+=1}.* $ *exec*
+• *${i+=1}.* ${prefix}join *link*
+• *${i+=1}.* ${prefix}setppbot *(tag/send image)*
 
 ⚙️ *GROUP*
-├ ${prefix}revoke
-├ ${prefix}leave
-├ ${prefix}group open/close
-└──────
+• *${i+=1}.* ${prefix}revoke
+• *${i+=1}.* ${prefix}leave
+• *${i+=1}.* ${prefix}group *open/close*
 
 😷 *WEEBS*
-├ ${prefix}anime query
-├ ${prefix}manga query
-├ ${prefix}character query
-└──────
+• *${i+=1}.* ${prefix}anime *query*
+• *${i+=1}.* ${prefix}manga *query*
+• *${i+=1}.* ${prefix}character *query*
 
 🔍 *MISC*
-├ ${prefix}film query
-├ ${prefix}wattpad query
-├ ${prefix}webtoons query
-├ ${prefix}drakor query
-├ ${prefix}pinterest query
-└──────
+• *${i+=1}.* ${prefix}film *query*
+• *${i+=1}.* ${prefix}wattpad *query*
+• *${i+=1}.* ${prefix}webtoons *query*
+• *${i+=1}.* ${prefix}drakor *query*
+• *${i+=1}.* ${prefix}pinterest *query*
 
 🎞 *MEDIA*
-├ ${prefix}toimg (tag sticker)
-└──────
+• *${i+=1}.* ${prefix}toimg *(tag sticker)*
 
 ⬇️ *DOWNLOADER* 
-├ ${prefix}tiktok link
-├ ${prefix}ytdl link
-├ ${prefix}ytmp3 link
-├ ${prefix}ytmp4 link
-├ ${prefix}ytdl link
-├ ${prefix}facebook link
-├ ${prefix}twitter link
-├ ${prefix}instagram link
-└──────
+• *${i+=1}.* ${prefix}tiktok *link*
+• *${i+=1}.* ${prefix}ytdl *link*
+• *${i+=1}.* ${prefix}ytmp3 *link*
+• *${i+=1}.* ${prefix}ytmp4 *link*
+• *${i+=1}.* ${prefix}ytdl *link*
+• *${i+=1}.* ${prefix}facebook *link*
+• *${i+=1}.* ${prefix}twitter *link*
+• *${i+=1}.* ${prefix}instagram *link*
 
 🙏 *THANKS*
-├ Xfarr api
-├ Baileys#multi-device
-├ and all support
-└──────
-
-    `
+• Xfarr api
+• Baileys#multi-device
+• and all support
+`
 }
 
-exports.rules = (prefix) => {
+exports.rules = (prefix, botName) => {
     return `
 *── 「 RULES AND FAQ 」 ──*
 
@@ -153,7 +148,7 @@ Sanksi: *❎ SOFT BLOCK*
 Sanksi: *‼️ PERMANENT BLOCK ‼️*
 
 🗯️ Bot tidak atau lambat merespon ?
-➡️ Mungkin dipengaruhi oleh jaringan, signal, banned oleh Whatsapp dan beberapa asalan. Tetap patuhi rules‼️
+➡️ Mungkin dipengaruhi oleh jaringan, signal, banned oleh Whatsapp dan beberapa alasan. Tetap patuhi rules‼️
 
 🗯️ Dimana saya bisa mendapatkan Script dari bot ini ?
 ➡️ Script ini masih private dan tidak pernah diperjual belikan ,bijaklah dalam mengetahui penipu.
@@ -164,16 +159,16 @@ Sanksi: *‼️ PERMANENT BLOCK ‼️*
 🗯️ Prefixnya apa ya?
 ➡️ Bot ini menggunakan multi prefix. Berarti anda bisa menggunakan prefix #, . , Dan prefix wajar lainnya.
 
-🗯️ Kak, kok syaa chat owner tidak direspon?
+🗯️ Kak, kok saya chat owner tidak direspon?
 ➡️ Owner hanya merespon pertanyaan seputar bot Dan kendala eror, tidak untuk kenalan ataupun mengemis script.
 
 
 Jika sudah dipahami rules-nya, silakan ketik *${prefix}allmenu* untuk memulai!
 
-⚠️ Segala kebijakan dan ketentuan ChikaBot di pegang oleh owner dan segala perubahan kebijakan, sewaktu waktu owner berhak mencabut, memblokir user(*﹏*) 
+⚠️ Segala kebijakan dan ketentuan *${botName}* di pegang oleh owner dan segala perubahan kebijakan, sewaktu waktu owner berhak mencabut, memblokir user(*﹏*) 
 
-Arigatou Gozaimasu! Untuk kalian user ramah dan Beberapa orang yg ikut membantu juga dalam project pembuatan chika-bot
-😖🙏
+Terima Suwon! Untuk kalian user ramah dan Beberapa orang yg ikut membantu juga dalam project pembuatan *${botName}*
+🙏
 
 
     `
@@ -185,11 +180,12 @@ exports.tos = (ownerNumber, prefix) => {
 
 Hai 👋
 Kalian bisa mendukung saya agar bot ini tetap up to date dengan:
-🏧 08127668234 (OVO/Dana/GoPay)
+0888-5960-825 (Smartfren/Dana/GoPay)
+0813-2663-5396 (Telkomsel)
 
 Berapapun donasi kalian akan sangat berarti 👍
 
-Arigatou!
+Matur Thankyou!
 
 Contact person Owner:
 wa.me/${ownerNumber} (Owner)
