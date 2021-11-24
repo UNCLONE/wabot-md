@@ -16,6 +16,7 @@ const { color, bgcolor } = require("../lib/color");
 const ind = require('../help/ind.js')
 const { getBuffer, fetchJson, fetchText, getRandom, getGroupAdmins, runtime, sleep, convert, convertGif, convertSticker } = require("../lib/myfunc");
 const setting = JSON.parse(fs.readFileSync('./config.json'));
+const pendaftar = JSON.parse(fs.readFileSync('./lib/json/AutoRegUser.json'))
 let {
     ownerNumber,
     botName
@@ -145,6 +146,14 @@ module.exports = async(ltzx, msg, m) => {
         if (isCmd && isGroup) {
 			console.log(color('[CMD]'), color(moment(msg.messageTimestamp * 1000).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(pushname), 'in', color(groupName))
         }
+
+        // Auto Regist
+	const isAutoRegUser = pendaftar.includes(sender)
+	if (isCmd && !isAutoRegUser){
+		pendaftar.push(sender)
+		fs.writeFileSync('./lib/json/AutoRegUser.json', JSON.stringify(pendaftar))
+	}
+	const regUser = pendaftar.length
 
         if (isOwner){
             if (chats.startsWith("> ")){
