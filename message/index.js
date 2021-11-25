@@ -294,13 +294,12 @@ async function wikipedia(querry) {
                 }
             break
             // Education
-            case prefix+'wiki':{
+            case prefix+'wiki':
                 if (!q) return textImg(ind.wrongFormat(prefix))
                 wikipedia(`${text}`).then(res => {
                         textImg(`${res.result.judul}\n\n${res.result.thumb}\n\n${res.result.isi}`)
                         }).catch(() => { textImg('Tidak Ditemukan') })
                 }
-            }
             break
             //Weebs
             case prefix+'anime':
