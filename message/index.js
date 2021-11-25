@@ -9,6 +9,7 @@ const PhoneNumber = require('awesome-phonenumber')
 const moment = require("moment-timezone");
 const { exec, spawn } = require("child_process");
 const xfar = require('xfarr-api');
+const kotz = require('kotz-api');
 const axios = require('axios')
 
 //Library
@@ -258,6 +259,15 @@ module.exports = async(ltzx, msg, m) => {
                 } else {
                     reply(ind.wrongFormat())
                 }
+            break
+            // Education
+            case prefix+'wiki':{
+                if (!q) return textImg(ind.wrongFormat(prefix))
+                kotz.wiki(q)
+                .then(async data => {
+                    textImg(data)
+                }
+            }
             break
             //Weebs
             case prefix+'anime':
@@ -597,5 +607,6 @@ module.exports = async(ltzx, msg, m) => {
         }
     } catch (err) {
         console.log(color('[ERROR]', 'red'), err)
+   
     }
 }
