@@ -119,7 +119,7 @@ module.exports = async(ltzx, msg, m) => {
                 return chika.sendMessage(from, { video: await getBuffer(url), caption: caption, mentions: men ? men : []}, {quoted: msg})
             } else if(mime.split("/")[0] === "audio"){
                 return chika.sendMessage(from, { audio: await getBuffer(url), caption: caption, mentions: men ? men : [], mimetype: 'audio/mpeg'}, {quoted: msg })
-            } else {l
+            } else if(mime.split("/")[0] === "document"){
                 return chika.sendMessage(from, { document: await getBuffer(url), mimetype: mime, caption: caption, mentions: men ? men : []}, {quoted: msg })
             }
         }
