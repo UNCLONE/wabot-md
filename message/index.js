@@ -485,8 +485,9 @@ async function wikipedia(querry) {
                     txt += `*📟 Quality :* ${data.medias[0].quality}\n`
                     txt += `*💾 Size :* ${data.medias[0].formattedSize}\n`
                     txt += `*📚 Url :* ${data.url}`
-                    let prepare = await prepareMessage({ 'video': { url: data.medias[0].url} })
-                    sendButtonVid(from, txt, `Informasi seputat bot ? Tekan button dibawah`, prepare.videoMessage, buttonsDefault)
+                   // let prepare = await prepareMessage({ 'video': { url: data.medias[0].url} })
+                   // sendButtonVid(from, txt, `Informasi seputat bot ? Tekan button dibawah`, prepare.videoMessage, buttonsDefault)
+                    sendFileFromUrl(from, data.medias[0].url, txt, msg)
                 })
                 .catch((err) => {
                     for (let x of ownerNumber) {
@@ -574,8 +575,8 @@ async function wikipedia(querry) {
                     txt += `*📫 Title :* ${data.title}\n`
                     txt += `*📟 Duration :* ${data.duration}\n`
                     txt += `*📚 Url :* ${data.url}`
-                    let prepare = await prepareMessage({ 'location': { jpegThumbnail: await getBuffer(data.thumbnail) } })
-                    sendButtonLoc(from, txt, `Silahkan pilih ekstensi yang anda inginkan`, prepare.locationMessage, buttons)
+                   // let prepare = await prepareMessage({ 'location': { jpegThumbnail: await getBuffer(data.thumbnail) } })
+                    chika.sendMessage(from, { caption: txt, location: { jpegThumbnail: fs.readFileSync(data.thumbnail) }, buttons: buttons, headerType: 'LOCATION', mentions: [] })
                 })
                 .catch((err) => {
                     for (let x of ownerNumber) {
@@ -596,9 +597,10 @@ async function wikipedia(querry) {
                     txt += `*💾 Size :* ${data.medias[1].formattedSize}\n`
                     txt += `*📚 Url Source :* ${data.url}\n\n`
                     txt += `*Mohon tunggu sebentar kak, sedang proses pengiriman...*`
-                    sendFileFromUrl(from, data.thumbnail, txt, msg)
-                    let prepare = await prepareMessage({ 'video': { url: data.medias[1].url} })
-                    sendButtonVid(from, ind.ok(), `Informasi seputat bot ? Tekan button dibawah`, prepare.videoMessage, buttonsDefault)
+                   // sendFileFromUrl(from, data.thumbnail, txt, msg)
+                   // let prepare = await prepareMessage({ 'video': { url: data.medias[1].url} })
+                   // sendButtonVid(from, ind.ok(), `Informasi seputat bot ? Tekan button dibawah`, prepare.videoMessage, buttonsDefault)
+                    sendFileFromUrl(from, data.medias[1].url, ind.ok(), msg)
                 })
                 .catch((err) => {
                     for (let x of ownerNumber) {
@@ -619,7 +621,7 @@ async function wikipedia(querry) {
                     txt += `*💾 Size :* ${data.medias[7].formattedSize}\n`
                     txt += `*📚 Url Source :* ${data.url}\n\n`
                     txt += `*Mohon tunggu sebentar kak, sedang proses pengiriman...*`
-                    sendFileFromUrl(from, data.thumbnail, txt, msg)
+                   // sendFileFromUrl(from, data.thumbnail, txt, msg)
                     await sendFileFromUrl(from, data.medias[7].url, '', msg)
                 })
                 .catch((err) => {
