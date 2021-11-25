@@ -231,7 +231,7 @@ async function wikipedia(querry) {
                     ]
                     sendButton('location', from, menyo, buttons)
                } else {
-                   textImg(menyo)
+                   textImg(`Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp. Jika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏.\n\nKetik *${prefix}allmenu* untuk membuka fitur yang tersedia`)
                 }
             }
             break
