@@ -569,6 +569,7 @@ async function wikipedia(querry) {
                 })
             break
             case prefix+'ytdl': case prefix+'youtubedl': case prefix+'youtube':
+                if (!isGroup) return textImg('Maaf, fitur ini mengandung button, hanya bisa digunakan dalam group\n\nGunakan fitur *${prefix}ytmp3* untuk audio atau *${prefix}ytmp4* untuk video')
                 if (!q) return textImg(ind.wrongFormat(prefix))
                 if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
                 if (!q.includes('youtu.be') && !q.includes('youtube.com')) return textImg(ind.wrongFormat(prefix))
