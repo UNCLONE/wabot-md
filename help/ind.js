@@ -126,7 +126,7 @@ exports.listMenu = (time, date, salam, pushname, prefix, regUser, ping, latensi)
 
 ⬇️ *DOWNLOADER* 
 *${i+=1}.* ${prefix}tiktok *link*
-*${i+=1}.* ${prefix}playmp3 *query*
+*${i+=1}.* ${prefix}play *query*
 *${i+=1}.* ${prefix}playmp4 *query*
 *${i+=1}.* ${prefix}ytmp3 *link*
 *${i+=1}.* ${prefix}ytmp4 *link*
