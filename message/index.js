@@ -354,10 +354,10 @@ async function wikipedia(querry) {
                     await sendFileFromUrl(from,data[0].thumbnail,txt,msg)
                 })
                 .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
+                   // for (let x of ownerNumber) {
+                   //     sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
+                   // }
+                    textImg(err)
                 })
             break
             //Misc
