@@ -110,11 +110,11 @@ module.exports = async(ltzx, msg, m) => {
         const sendMess = (from, teks) => {
              return chika.sendMessage(from, { text: teks })
         }
-        let capt, gambar;
-          capt = 'test button 5'
-          gambar = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb6f93asR9RyFlatpRvBWb5hZA42HvwFuWXQ&usqp=CAU'
-          let gambar_ = fs.readFileSync(setting.pathImg); // getBuffer(gambar);
-          let Hasil = gambar_(capt)
+        //let capt, gambar;
+          //capt = 'test button 5'
+          //gambar = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb6f93asR9RyFlatpRvBWb5hZA42HvwFuWXQ&usqp=CAU'
+          let gambar_ = fs.readFileSync(setting.pathImg) // getBuffer(gambar);
+          let Hasil = gambar_
         const buttonWA_ = (from, caption, button) => {
             let butfive = ltzx.generateWAMessageFromContent(from, { "templateMessage": { "hydratedTemplate": {"imageMessage": Hasil, "hydratedContentText": caption, "hydratedFooterText": `*© ${setting.botName}*`,"hydratedButtons": button }, "hydratedFourRowTemplate": {"imageMessage": Hasil, "hydratedContentText": caption, "hydratedButtons": button }}}, {quoted: msg})
             return ltzx.relayMessage(butfive, {waitForAck: true})
