@@ -111,7 +111,6 @@ module.exports = async(ltzx, msg, m) => {
         let capt, gambar;
           capt = 'test button 5'
           gambar = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb6f93asR9RyFlatpRvBWb5hZA42HvwFuWXQ&usqp=CAU'
-          var { getBuffer } = require('./Message/Func.js')
           let gambar_ = fs.readFileSync(setting.pathImg); // getBuffer(gambar);
           let Hasil = gambar_(capt)
         const buttonWA_ = (from, caption, button) => {
