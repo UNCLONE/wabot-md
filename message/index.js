@@ -39,6 +39,7 @@ moment.tz.setDefault("Asia/Jakarta").locale("id");
 module.exports = async(ltzx, msg, m) => {
 
     let chika = ltzx
+    let syauqun = ltzx
 
     try {
         const time = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('HH:mm:ss z')
@@ -102,6 +103,16 @@ module.exports = async(ltzx, msg, m) => {
         }
         const sendMess = (from, teks) => {
              return chika.sendMessage(from, { text: teks })
+        }
+        let capt, gambar;
+          capt = 'test button 5'
+          gambar = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb6f93asR9RyFlatpRvBWb5hZA42HvwFuWXQ&usqp=CAU'
+          var { getBuffer } = require('./Message/Func.js')
+          let gambar_ = fs.readFileSync(setting.pathImg); // getBuffer(gambar);
+          let Hasil = gambar_(capt)
+        const buttonWA_ = (from, caption, button) => {
+            let butfive = ltzx.generateWAMessageFromContent(from, { "templateMessage": { "hydratedTemplate": {"imageMessage": Hasil, "hydratedContentText": caption, "hydratedFooterText": `*© ${setting.botName}*`,"hydratedButtons": button }, "hydratedFourRowTemplate": {"imageMessage": Hasil, "hydratedContentText": caption, "hydratedButtons": button }}}, {quoted: msg})
+            return ltzx.relayMessage(butfive, {waitForAck: true})
         }
 
         const sendContact = (jid, numbers, name, quoted, men) => {
@@ -222,6 +233,45 @@ async function wikipedia(querry) {
 
 	switch (command) {
             //Sistem Command
+                  case 'test5button':
+                let butV = [
+                    {
+                        "urlButton": {
+										"displayText": "instagram",  //5 Buttons bagian web
+										"url": "https://instagram.com/justme.akmall"
+									},
+									"index": 0
+								},
+								{
+									"callButton": { //5 Buttons bagian telepon 
+										"displayText": "number",
+										"phoneNumber": "628885960825@s.whatsapp.net"
+									},
+									"index": 1
+								},
+								{
+									"quickReplyButton": {
+										"displayText": "halo",
+										"id": ".tos"
+									},
+									"index": 2
+								},
+								{
+									"quickReplyButton": {
+										"displayText": "test2",
+										"id": ".rule"
+									},
+									"index": 3
+								},
+								{
+									"quickReplyButton": {
+										"displayText": "test3",
+										"id": ".help"
+									},
+                     }
+                  ]
+                buttonWA_(from, `Hai kak ${pushname}, selamat ${salam}`, butV)
+                break
             case prefix+'rule': case prefix+'rules':
                 textImg(ind.rules(prefix, botName))
             break
