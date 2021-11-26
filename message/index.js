@@ -19,6 +19,15 @@ const xfar = require('xfarr-api');
 const axios = require('axios')
 const fetch = require('node-fetch')
 let cheerio = require("cheerio")
+const os = require("os");                                            
+const moment = require("moment-timezone");                           
+const speed = require('performance-now');                            
+                                                                     
+var uptime = process.uptime();                                       
+  const timestamp = speed();                                         
+  const latensi = speed() - timestamp                                
+                                                                     
+const ping = moment().millisecond()
 
 //Library
 const { color, bgcolor } = require("../lib/color");
@@ -245,7 +254,7 @@ async function wikipedia(querry) {
                 } catch {
                     var prof = 'https://i.ibb.co/Tq7d7TZ/age-hananta-495-photo.png'
                 }
-                sendFileFromUrl(from, prof, ind.listMenu(time, date, salam, pushname, prefix, regUser), msg)
+                sendFileFromUrl(from, prof, ind.listMenu(time, date, salam, pushname, prefix, regUser, ping, latensi), msg)
             }
             break
             // Owner
