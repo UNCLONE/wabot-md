@@ -548,7 +548,7 @@ async function wikipedia(querry) {
                 }
 	        break
             //Downloader
-            case 'tiktok':
+            case prefix+'tiktok':
  		if (!q) return textImg(ind.wrongFormat(prefix))
                 if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
                 if (!q.includes('tiktok.com')) return textImg(ind.wrongFormat(prefix))
@@ -565,7 +565,7 @@ async function wikipedia(querry) {
 		})
      		.catch(err => { reply(err) })
      		break
-    case 'tiktokaudio':
+    case prefix+'tiktokaudio':
  		if (!q) return textImg(ind.wrongFormat(prefix))
                 if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
                 if (!q.includes('tiktok.com')) return textImg(ind.wrongFormat(prefix))
@@ -669,7 +669,7 @@ async function wikipedia(querry) {
                 })
             break
 */
-case 'ytsearch':
+case prefix+'ytsearch':
 			if (!q) return reply('Tolong masukan query!')
 			var srch = q
 			try {
@@ -692,7 +692,7 @@ case 'ytsearch':
     		await textImg(tbuff,ytresult)
 			break
 				
-				case 'ytmp4':
+				case prefix+'ytmp4':
 			if (!q) return textImg(ind.wrongFormat(prefix))
                 if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
                 if (!q.includes('youtu.be') && !q.includes('youtube.com')) return textImg(ind.wrongFormat(prefix))
@@ -713,7 +713,7 @@ case 'ytsearch':
 				}
 				break
 				
-				case 'ytmp3':
+				case prefix+'ytmp3':
 			if (!q) return textImg(ind.wrongFormat(prefix))
                 if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
                 if (!q.includes('youtu.be') && !q.includes('youtube.com')) return textImg(ind.wrongFormat(prefix))
