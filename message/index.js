@@ -362,10 +362,15 @@ async function wikipedia(querry) {
             // Education
             case prefix+'wiki':
                 if (!q) return textImg(ind.wrongFormat(prefix))
-                wikipedia(`${text}`).then(res => {
-                        textImg(`${res.result.judul}\n\n${res.result.thumb}\n\n${res.result.isi}`)
-                        }).catch(() => { textImg('Tidak Ditemukan') })
-                }
+                wikipedia(q).then(async res => {
+                        wikires = `*${res.result.judul}*\n\n${res.result.isi}`
+                        await sendFileFromUrl(from,res.result.thumb,wikires,msg)
+                        // textImg(`*${res.result.judul}*\n\n${res.result.isi}`)
+                        })
+                        .catch(() => { 
+                           textImg(err) 
+                        })
+     
             break
             //Weebs
             case prefix+'anime':
