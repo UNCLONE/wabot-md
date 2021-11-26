@@ -43,6 +43,8 @@ module.exports = async(ltzx, msg, m) => {
 
     let chika = ltzx
     let syauqun = ltzx
+    let dvnz = ltzx
+    let mek = msg
 
     try {
         const time = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('HH:mm:ss z')
@@ -629,6 +631,7 @@ async function wikipedia(querry) {
                     textImg(ind.err())
                 })
             break
+/*
             case prefix+'ytdl': case prefix+'youtubedl': case prefix+'youtube':
                 if (!isGroup) return textImg('Maaf, fitur ini mengandung button, hanya bisa digunakan dalam group\n\nGunakan fitur *${prefix}ytmp3* untuk audio atau *${prefix}ytmp4* untuk video')
                 if (!q) return textImg(ind.wrongFormat(prefix))
@@ -654,52 +657,131 @@ async function wikipedia(querry) {
                     textImg(ind.err())
                 })
             break
-            case prefix+'mp4': case prefix+'ytmp4':
-                if (!q) return textImg(ind.wrongFormat(prefix))
-                if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
-                if (!q.includes('youtu.be') && !q.includes('youtube.com')) return textImg(ind.wrongFormat(prefix))
-                await textImg(ind.wait())
-                xfar.Youtube(args[1]).then(async (data) => {
-                    let txt = `*----「 YOUTUBE VIDEO 」----*\n\n`
-                    txt += `*📟 Quality :* ${data.medias[1].quality}\n`
-                    txt += `*🎞️ Type :* ${data.medias[1].extension}\n`
-                    txt += `*💾 Size :* ${data.medias[1].formattedSize}\n`
-                    txt += `*📚 Url Source :* ${data.url}\n\n`
-                    txt += `*Mohon tunggu sebentar kak, sedang proses pengiriman...*`
-                   // sendFileFromUrl(from, data.thumbnail, txt, msg)
-                   // let prepare = await prepareMessage({ 'video': { url: data.medias[1].url} })
-                   // sendButtonVid(from, ind.ok(), `Informasi seputat bot ? Tekan button dibawah`, prepare.videoMessage, buttonsDefault)
-                    sendFileFromUrl(from, data.medias[1].url, ind.ok(), msg)
-                })
-                .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
-                })
-            break
-            case prefix+'mp3': case prefix+'ytmp3':
-                if (!q) return textImg(ind.wrongFormat(prefix))
-                if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
-                if (!q.includes('youtu.be') && !q.includes('youtube.com')) return textImg(ind.wrongFormat(prefix))
-                await textImg(ind.wait())
-                xfar.Youtube(args[1]).then(async (data) => {
-                    let txt = `*----「 YOUTUBE AUDIO 」----*\n\n`
-                    txt += `*📟 Quality :* ${data.medias[7].quality}\n`
-                    txt += `*🎞️ Type :* ${data.medias[7].extension}\n`
-                    txt += `*💾 Size :* ${data.medias[7].formattedSize}\n`
-                    txt += `*📚 Url Source :* ${data.url}\n\n`
-                    txt += `*Mohon tunggu sebentar kak, sedang proses pengiriman...*`
-                   // sendFileFromUrl(from, data.thumbnail, txt, msg)
-                    await sendFileFromUrl(from, data.medias[7].url, '', msg)
-                })
-                .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
-                })
-            break
+*/
+            case 'playmp3': // By Ramlan Ganteng
+				if (!q) return reply(`Format salah!\nContoh :\n${prefix}playmp3 sayang`)
+				if (!q.endsWith("-doc")){
+				anu = await yts(`${q}`).catch(e => {
+				reply('_Error!_')
+				})
+				reply('```Sabar...```')
+				let thumbInfo = `「  *Youtube Play*  」
+❏ *Judul :* ${anu.all[0].title}
+❏ *Views :* ${anu.all[0].views}
+❏ *Durasi :* ${anu.all[0].timestamp}
+❏ *ID :* ${anu.all[0].videoId}
+
+[WAIT] Proses Dumlu Yakan...`
+				infoplay = await getBuffer(anu.all[0].image)
+				dvnz.sendMessage(from, infoplay, image, {quoted: mek, caption: thumbInfo})
+				anu = await y2mateA(anu.all[0].url).catch(e => {
+				reply('_Error!_')
+				})
+				playnya = await getBuffer(anu[0].link)
+				dvnz.sendMessage(from, playnya, document, {mimetype: 'audio/mp4', filename: `${anu[0].output}`, quoted: mek})
+				}
+				if (q.endsWith("-doc")){
+				const aca = q.split("-doc")
+				anu = await yts(`${aca}`).catch(e => {
+				reply('_Error!_')
+				})
+				reply(ind.wait())
+				let thumbInfo = `❒「 *Youtube Play* 」
+❏ *Judul :* ${anu.all[0].title}
+❏ *Views :* ${anu.all[0].views}
+❏ *Durasi :* ${anu.all[0].timestamp}
+❏ *ID :* ${anu.all[0].videoId}
+
+[WAIT] Proses Dumlu Yakan...`
+				infoplay = await getBuffer(anu.all[0].image)
+				dvnz.sendMessage(from, infoplay, image, {quoted: mek, caption: thumbInfo})
+				anu = await y2mateA(anu.all[0].url).catch(e => {
+				reply('_Error!_')
+				})
+				playnya = await getBuffer(anu[0].link)
+				dvnz.sendMessage(from, playnya, document, {mimetype: 'audio/mp4', filename: `${anu[0].output}`, quoted: mek})
+				}
+				break
+				
+				case 'playmp4': // Ramlan Ganteng
+				if (!q) return reply(`Format salah!\nContoh :\n${prefix}playmp4 sayang`)
+				if (!q.endsWith("-doc")){
+				anu = await yts(`${q}`).catch(e => {
+				reply('_Error!_')
+				})
+				reply('```Sabar...```')
+				let thumbInfo = `「  *Youtube Play*  」
+❏ *Judul :* ${anu.all[0].title}
+❏ *Views :* ${anu.all[0].views}
+❏ *Durasi :* ${anu.all[0].timestamp}
+❏ *ID :* ${anu.all[0].videoId}
+
+[WAIT] Proses Dumlu Yakan...`
+				infoplay = await getBuffer(anu.all[0].image)
+				dvnz.sendMessage(from, infoplay, image, {quoted: mek, caption: thumbInfo})
+				anu = await y2mateV(anu.all[0].url).catch(e => {
+				reply('_Error!_')
+				})
+				playnya = await getBuffer(anu[0].link)
+				dvnz.sendMessage(from, playnya, video, {mimetype: 'video/mp4', filename: `${anu[0].output}`, quoted: mek})
+				}
+				if (q.endsWith("-doc")){
+				const aca = q.split("-doc")
+				anu = await yts(`${aca}`).catch(e => {
+				reply('_Error!_')
+				})
+				reply('```Sabar...```')
+				let thumbInfo = `❒「 *Youtube Play* 」
+❏ *Judul :* ${anu.all[0].title}
+❏ *Views :* ${anu.all[0].views}
+❏ *Durasi :* ${anu.all[0].timestamp}
+❏ *ID :* ${anu.all[0].videoId}
+
+[WAIT] Proses Dumlu Yakan...`
+				infoplay = await getBuffer(anu.all[0].image)
+				dvnz.sendMessage(from, infoplay, image, {quoted: mek, caption: thumbInfo})
+				anu = await y2mateV(anu.all[0].url).catch(e => {
+				reply('_Error!_')
+				})
+				playnya = await getBuffer(anu[0].link)
+				dvnz.sendMessage(from, playnya, document, {mimetype: 'video/mp4', filename: `${anu[0].output}`, quoted: mek})
+				}
+				break
+				
+				case 'ytmp4':
+				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('Link tidak valid')
+				reply('```Sabar...```')
+				anu = await y2mateV(q).catch(e => {
+				reply('_Error!_')
+				})
+				acamp4 = `「 *Youtube Download* 」
+❏ *Judul :* ${anu[0].judul}
+❏ *Ukuran :* ${anu[0].size}
+
+[WAIT] Proses Dumlu Yakan...`
+				infomp4 = await getBuffer(anu[0].thumb)
+				dvnz.sendMessage(from, infomp4, image, {quoted: mek, caption: acamp4})
+				vidionye = await getBuffer(anu[0].link)
+				dvnz.sendMessage(from, vidionye, video, {mimetype: 'video/mp4', filename: `${anu[0].output}`, quoted: mek})
+				break
+				
+				case 'ytmp3':
+				if (!q) return reply('Link Nya Mana kak?')
+				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('Link tidak valid')
+				reply('```Sabar...```')
+				anu = await y2mateA(q).catch(e => {
+				reply('_Error!_')
+				})
+				acamp3 = `「 *Youtube Download* 」
+❏ *Judul :* ${anu[0].judul}
+❏ *Ukuran :* ${anu[0].size}
+
+[WAIT] Proses Dumlu Yakan...`
+				infomp3 = await getBuffer(anu[0].thumb)
+				dvnz.sendMessage(from, infomp3, image, {quoted: mek, caption: acamp3})
+				lagunye = await getBuffer(anu[0].link)
+				dvnz.sendMessage(from, lagunye, document, {mimetype: 'audio/mp4', filename: `${anu[0].output}`, ptt:false, quoted: mek})
+				break
             default:
             if (isCmd) {
                 textImg(ind.cmdNotFound(command, prefix))
