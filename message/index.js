@@ -718,7 +718,6 @@ case prefix+'ytsearch':
                 if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
                 if (!q.includes('youtu.be') && !q.includes('youtube.com')) return textImg(ind.wrongFormat(prefix))
 				try {
-				reply(mess.wait)
 				yta(q)
 				.then(async (res) => {
 				const { dl_link, thumb, title, filesizeF, filesize } = res
