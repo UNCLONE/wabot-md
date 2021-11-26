@@ -658,7 +658,7 @@ async function wikipedia(querry) {
                 })
             break
 */
-            case 'playmp3': // By Ramlan Ganteng
+            case 'play': // By Ramlan Ganteng
 				if (!q) return reply(`Format salah!\nContoh :\n${prefix}playmp3 sayang`)
 				if (!q.endsWith("-doc")){
 				anu = await yts(`${q}`).catch(e => {
