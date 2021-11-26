@@ -22,12 +22,13 @@ let cheerio = require("cheerio")
 const os = require("os");                                                                       
 const speed = require('performance-now');
 
-const { y2mateA, y2mateV } = require('../lib/y2mate')
 const yts = require('yt-search')                                                                                                
 
 //Library
 const { color, bgcolor } = require("../lib/color");
 const ind = require('../help/ind.js')
+const { yta, ytv, igdl, upload, formatDate } = require('../lib/ytdl')
+const { y2mateA, y2mateV } = require('../lib/y2mate')
 const { getBuffer, fetchJson, fetchText, getRandom, getGroupAdmins, runtime, sleep, convert, convertGif, convertSticker } = require("../lib/myfunc");
 const setting = JSON.parse(fs.readFileSync('./config.json'));
 const pendaftar = JSON.parse(fs.readFileSync('./lib/json/AutoRegUser.json'))
@@ -43,6 +44,7 @@ module.exports = async(ltzx, msg, m) => {
     let chika = ltzx
     let syauqun = ltzx
     let dvnz = ltzx
+    let hexa = ltzx
     let mek = msg
 
     try {
@@ -661,129 +663,70 @@ async function wikipedia(querry) {
                 })
             break
 */
-            case 'play': // By Ramlan Ganteng
-				if (!q) return reply(`Format salah!\nContoh :\n${prefix}playmp3 sayang`)
-				if (!q.endsWith("-doc")){
-				anu = await yts(`${q}`).catch(e => {
-				reply('_Error!_')
-				})
-				reply('```Sabar...```')
-				let thumbInfo = `「  *Youtube Play*  」
-❏ *Judul :* ${anu.all[0].title}
-❏ *Views :* ${anu.all[0].views}
-❏ *Durasi :* ${anu.all[0].timestamp}
-❏ *ID :* ${anu.all[0].videoId}
-
-[WAIT] Proses Dumlu Yakan...`
-				infoplay = await getBuffer(anu.all[0].image)
-				dvnz.sendMessage(from, infoplay, image, {quoted: mek, caption: thumbInfo})
-				anu = await y2mateA(anu.all[0].url).catch(e => {
-				reply('_Error!_')
-				})
-				playnya = await getBuffer(anu[0].link)
-				dvnz.sendMessage(from, playnya, document, {mimetype: 'audio/mp4', filename: `${anu[0].output}`, quoted: mek})
-				}
-				if (q.endsWith("-doc")){
-				const aca = q.split("-doc")
-				anu = await yts(`${aca}`).catch(e => {
-				reply('_Error!_')
-				})
-				reply(ind.wait())
-				let thumbInfo = `❒「 *Youtube Play* 」
-❏ *Judul :* ${anu.all[0].title}
-❏ *Views :* ${anu.all[0].views}
-❏ *Durasi :* ${anu.all[0].timestamp}
-❏ *ID :* ${anu.all[0].videoId}
-
-[WAIT] Proses Dumlu Yakan...`
-				infoplay = await getBuffer(anu.all[0].image)
-				dvnz.sendMessage(from, infoplay, image, {quoted: mek, caption: thumbInfo})
-				anu = await y2mateA(anu.all[0].url).catch(e => {
-				reply('_Error!_')
-				})
-				playnya = await getBuffer(anu[0].link)
-				dvnz.sendMessage(from, playnya, document, {mimetype: 'audio/mp4', filename: `${anu[0].output}`, quoted: mek})
-				}
-				break
-				
-				case 'playmp4': // Ramlan Ganteng
-				if (!q) return reply(`Format salah!\nContoh :\n${prefix}playmp4 sayang`)
-				if (!q.endsWith("-doc")){
-				anu = await yts(`${q}`).catch(e => {
-				reply('_Error!_')
-				})
-				reply('```Sabar...```')
-				let thumbInfo = `「  *Youtube Play*  」
-❏ *Judul :* ${anu.all[0].title}
-❏ *Views :* ${anu.all[0].views}
-❏ *Durasi :* ${anu.all[0].timestamp}
-❏ *ID :* ${anu.all[0].videoId}
-
-[WAIT] Proses Dumlu Yakan...`
-				infoplay = await getBuffer(anu.all[0].image)
-				dvnz.sendMessage(from, infoplay, image, {quoted: mek, caption: thumbInfo})
-				anu = await y2mateV(anu.all[0].url).catch(e => {
-				reply('_Error!_')
-				})
-				playnya = await getBuffer(anu[0].link)
-				dvnz.sendMessage(from, playnya, video, {mimetype: 'video/mp4', filename: `${anu[0].output}`, quoted: mek})
-				}
-				if (q.endsWith("-doc")){
-				const aca = q.split("-doc")
-				anu = await yts(`${aca}`).catch(e => {
-				reply('_Error!_')
-				})
-				reply('```Sabar...```')
-				let thumbInfo = `❒「 *Youtube Play* 」
-❏ *Judul :* ${anu.all[0].title}
-❏ *Views :* ${anu.all[0].views}
-❏ *Durasi :* ${anu.all[0].timestamp}
-❏ *ID :* ${anu.all[0].videoId}
-
-[WAIT] Proses Dumlu Yakan...`
-				infoplay = await getBuffer(anu.all[0].image)
-				dvnz.sendMessage(from, infoplay, image, {quoted: mek, caption: thumbInfo})
-				anu = await y2mateV(anu.all[0].url).catch(e => {
-				reply('_Error!_')
-				})
-				playnya = await getBuffer(anu[0].link)
-				dvnz.sendMessage(from, playnya, document, {mimetype: 'video/mp4', filename: `${anu[0].output}`, quoted: mek})
-				}
-				break
+case 'ytsearch':
+			if (!q) return reply('Tolong masukan query!')
+			var srch = q
+			try {
+        	var aramas = await yts(srch);
+   			} catch {
+        	return await reply('Error!')
+    		}
+    		aramat = aramas.all 
+    		var tbuff = await getBuffer(aramat[0].image)
+    		var ytresult = '';
+    		ytresult += '「 *YOUTUBE SEARCH* 」'
+    		ytresult += '\n________________________\n\n'
+   			aramas.all.map((video) => {
+        	ytresult += '❏ Title: ' + video.title + '\n'
+            ytresult += '❏ Link: ' + video.url + '\n'
+            ytresult += '❏ Durasi: ' + video.timestamp + '\n'
+            ytresult += '❏ Upload: ' + video.ago + '\n________________________\n\n'
+    		});
+    		ytresult += ''
+    		await textImg(tbuff,ytresult)
+			break
 				
 				case 'ytmp4':
-				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('Link tidak valid')
-				reply('```Sabar...```')
-				anu = await y2mateV(q).catch(e => {
-				reply('_Error!_')
+			if (!q) return textImg(ind.wrongFormat(prefix))
+                if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
+                if (!q.includes('youtu.be') && !q.includes('youtube.com')) return textImg(ind.wrongFormat(prefix))
+				try {
+				ytv(q)
+				.then((res) => {
+				const { dl_link, thumb, title, filesizeF, filesize } = res
+				axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
+				.then((a) => {
+				if (Number(filesize) >= 50000) return sendFileFromUrl(from, thumb, `*YTMP 4!*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam mektuk link_`, msg)
+				const captionsYtmp4 = `*Data Berhasil Didapatkan!*\n\n*Title* : ${title}\n*Ext* : MP4\n*Size* : ${filesizeF}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
+				sendFileFromUrl(from, thumb, captionsYtmp4, msg)
+				sendFileFromUrl(from, dl_link, '', msg).catch(() => reply(err))
+				})		
 				})
-				acamp4 = `「 *Youtube Download* 」
-❏ *Judul :* ${anu[0].judul}
-❏ *Ukuran :* ${anu[0].size}
-
-[WAIT] Proses Dumlu Yakan...`
-				infomp4 = await getBuffer(anu[0].thumb)
-				dvnz.sendMessage(from, infomp4, image, {quoted: mek, caption: acamp4})
-				vidionye = await getBuffer(anu[0].link)
-				dvnz.sendMessage(from, vidionye, video, {mimetype: 'video/mp4', filename: `${anu[0].output}`, quoted: mek})
+				} catch (err) {
+			    reply(err)
+				}
 				break
 				
 				case 'ytmp3':
-				if (!q) return reply('Link Nya Mana kak?')
-				if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('Link tidak valid')
-				reply('```Sabar...```')
-				anu = await y2mateA(q).catch(e => {
-				reply('_Error!_')
+			if (!q) return textImg(ind.wrongFormat(prefix))
+                if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
+                if (!q.includes('youtu.be') && !q.includes('youtube.com')) return textImg(ind.wrongFormat(prefix))
+				try {
+				reply(mess.wait)
+				yta(q)
+				.then((res) => {
+				const { dl_link, thumb, title, filesizeF, filesize } = res
+				axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
+				.then((a) => {
+			    if (Number(filesize) >= 30000) return sendFileFromUrl(from, thumb, `*Data Berhasil Didapatkan!*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam mektuk link_`, msg)
+				const captions = `*YTMP3*\n\n*Title* : ${title}\n*Ext* : MP3\n*Size* : ${filesizeF}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
+				sendFileFromUrl(from, thumb, captions, msg)
+				sendFileFromUrl(from, dl_link, '', msg).catch(() => reply(err))
 				})
-				acamp3 = `「 *Youtube Download* 」
-❏ *Judul :* ${anu[0].judul}
-❏ *Ukuran :* ${anu[0].size}
-
-[WAIT] Proses Dumlu Yakan...`
-				infomp3 = await getBuffer(anu[0].thumb)
-				dvnz.sendMessage(from, infomp3, image, {quoted: mek, caption: acamp3})
-				lagunye = await getBuffer(anu[0].link)
-				dvnz.sendMessage(from, lagunye, document, {mimetype: 'audio/mp4', filename: `${anu[0].output}`, ptt:false, quoted: mek})
+				})
+				} catch (err) {
+				reply(err)
+				}
 				break
             default:
             if (isCmd) {
