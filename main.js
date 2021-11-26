@@ -1,4 +1,5 @@
 "use strict";
+
 const { default: makeWASocket, BufferJSON, initInMemoryKeyStore, DisconnectReason, AnyMessageContent, delay, useSingleFileAuthState } = require("@adiwajshing/baileys-md")
 const figlet = require("figlet");
 const fs = require("fs");
