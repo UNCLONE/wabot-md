@@ -120,6 +120,7 @@ exports.listMenu = (time, date, salam, pushname, prefix, regUser, ping, latensi)
 *${i+=1}.* ${prefix}webtoons *query*
 *${i+=1}.* ${prefix}drakor *query*
 *${i+=1}.* ${prefix}pinterest *query*
+*${i+=1}.* ${prefix}wiki *query*
 
 🎞 *MEDIA*
 *${i+=1}.* ${prefix}toimg *(tag sticker)*
