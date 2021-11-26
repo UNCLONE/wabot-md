@@ -2,14 +2,14 @@
 
 //Module
 const { 
-         default: makeWASocket, 
-         BufferJSON, 
-         initInMemoryKeyStore, 
-         DisconnectReason, 
-         MessageType,
-         MessageOptions, 
-         MimeType,
-          downloadContentFromMessage
+     default: makeWASocket, 
+     BufferJSON, 
+     initInMemoryKeyStore, 
+     DisconnectReason, 
+     MessageType,
+     MessageOptions, 
+     MimeType,
+     downloadContentFromMessage
  } = require("@adiwajshing/baileys-md");
 const fs = require("fs");
 const PhoneNumber = require('awesome-phonenumber')
