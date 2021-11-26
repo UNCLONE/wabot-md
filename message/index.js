@@ -230,8 +230,8 @@ async function wikipedia(querry) {
                 const menyo = `Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp. Jika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏`
                 if (isGroup) {
                     let buttons = [
-                        {buttonId: `${prefix}allmenu`, buttonText: {displayText: '🔍 List Menu'}, type: 1},
-                        {buttonId: `${prefix}rule`, buttonText: {displayText: '🎛️ Rules Bot' }, type: 1}
+                        {buttonId: `${prefix}allmenu`, buttonText: {displayText: 'List Menu'}, type: 1},
+                        {buttonId: `${prefix}rule`, buttonText: {displayText: 'Rules Bot' }, type: 1}
                     ]
                     sendButton('location', from, menyo, buttons)
                } else {
@@ -575,15 +575,15 @@ async function wikipedia(querry) {
                 await textImg(ind.wait())
                 xfar.Youtube(args[1]).then(async (data) => {
                     const buttons = [
-                        { quickReplyButton: { displayText: `🎥 Music`, id: `${prefix}ytmp3 ${args[1]}` } },
-                        { quickReplyButton: { displayText: `🎶 Video`, id: `${prefix}ytmp4 ${args[1]}` } },
+                        { quickReplyButton: { displayText: `Audio (${data.medias[7].quality})`, id: `${prefix}ytmp3 ${args[1]}` } },
+                        { quickReplyButton: { displayText: `Video (${data.medias[1].quality})`, id: `${prefix}ytmp4 ${args[1]}` } },
                     ]
                     let txt = `*----「 YOUTUBE DOWNLOADER 」----*\n\n`
                     txt += `*📫 Title :* ${data.title}\n`
                     txt += `*📟 Duration :* ${data.duration}\n`
                     txt += `*📚 Url :* ${data.url}`
                    // let prepare = await prepareMessage({ 'location': { jpegThumbnail: await getBuffer(data.thumbnail) } })
-                    chika.sendMessage(from, { caption: txt, location: { jpegThumbnail: fs.readFileSync(data.thumbnail) }, buttons: buttons, headerType: 'LOCATION', mentions: [] })
+                    sendButton('location', from, txt, buttons, [sender], msg, await getBuffer(data.thumbnail))
                 })
                 .catch((err) => {
                     for (let x of ownerNumber) {
