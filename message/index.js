@@ -22,7 +22,7 @@ let cheerio = require("cheerio")
 const os = require("os");                                                                       
 const speed = require('performance-now');
 
-const { y2mateA, y2mateV } = require('./lib/y2mate.js')
+const { y2mateA, y2mateV } = require('../lib/y2mate')
 const yts = require('yt-search')                                                                                                
 
 //Library
