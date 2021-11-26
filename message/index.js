@@ -698,7 +698,7 @@ case 'ytsearch':
                 if (!q.includes('youtu.be') && !q.includes('youtube.com')) return textImg(ind.wrongFormat(prefix))
 				try {
 				ytv(q)
-				.then((res) => {
+				.then(async (res) => {
 				const { dl_link, thumb, title, filesizeF, filesize } = res
 				axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
 				.then((a) => {
@@ -720,7 +720,7 @@ case 'ytsearch':
 				try {
 				reply(mess.wait)
 				yta(q)
-				.then((res) => {
+				.then(async (res) => {
 				const { dl_link, thumb, title, filesizeF, filesize } = res
 				axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
 				.then((a) => {
