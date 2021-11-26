@@ -27,7 +27,7 @@ const yts = require('yt-search')
 //Library
 const { color, bgcolor } = require("../lib/color");
 const ind = require('../help/ind.js')
-const { yta, ytv, igdl, upload, formatDate } = require('../lib/ytdl')
+const { yta, ytv, igdl, upload, formatDate, ttdownloader } = require('../lib/ytdl')
 const { y2mateA, y2mateV } = require('../lib/y2mate')
 const { getBuffer, fetchJson, fetchText, getRandom, getGroupAdmins, runtime, sleep, convert, convertGif, convertSticker } = require("../lib/myfunc");
 const setting = JSON.parse(fs.readFileSync('./config.json'));
@@ -548,29 +548,35 @@ async function wikipedia(querry) {
                 }
 	        break
             //Downloader
-            case prefix+'tiktok':
-                if (!q) return textImg(ind.wrongFormat(prefix))
+            case 'tiktok':
+ 		if (!q) return textImg(ind.wrongFormat(prefix))
                 if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
-                if (!q.includes('tiktok.com')) return textImg(ind.wrongFormat(prefix))
+                if (!q.includes('twitter.com')) return textImg(ind.wrongFormat(prefix))
                 await textImg(ind.wait())
-                xfar.Tiktok(args[1]).then(async data => {
-                    let txt = `*----「 TIKTOK DOWNLOADER 」----*\n\n`
-                    txt += `*📫 Title :* ${data.title}\n`
-                    txt += `*🎞️ Type :* ${data.medias[0].extension}\n`
-                    txt += `*📟 Quality :* ${data.medias[0].quality}\n`
-                    txt += `*💾 Size :* ${data.medias[0].formattedSize}\n`
-                    txt += `*📚 Url :* ${data.url}`
-                   // let prepare = await prepareMessage({ 'video': { url: data.medias[0].url} })
-                   // sendButtonVid(from, txt, `Informasi seputat bot ? Tekan button dibawah`, prepare.videoMessage, buttonsDefault)
-                    sendFileFromUrl(from, data.medias[0].url, txt, msg)
-                })
-                .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
-                })
-            break
+		ttdownloader(q)
+    		.then(async result => {
+    		const { wm, nowm, audio } = result
+    		axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
+    		.then(async (a) => {
+    		me = `*Link* : ${a.data}`
+               sendFileFromUrl(from,nowm,me,msg)
+		//hexa.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4',quoted:mek,caption:me})
+		})
+		})
+     		.catch(err => { reply(err) })
+     		break
+    case 'tiktokaudio':
+ 		if (!q) return textImg(ind.wrongFormat(prefix))
+                if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
+                if (!q.includes('twitter.com')) return textImg(ind.wrongFormat(prefix))
+                await textImg(ind.wait())
+ 		ttdownloader(q)
+    		.then(async result => {
+    		const { audio } = result
+            sendFileFromUrl(from,audio,'',msg)
+    		})
+     		.catch(err => { reply(err) })
+     		break
             case prefix+'facebook': case prefix+'fb': case prefix+'fbdl': case prefix+'facebookdl':
                 if (!q) return textImg(ind.wrongFormat(prefix))
                 if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
