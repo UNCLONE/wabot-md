@@ -21,13 +21,7 @@ const fetch = require('node-fetch')
 let cheerio = require("cheerio")
 const os = require("os");                                            
 const moment = require("moment-timezone");                           
-const speed = require('performance-now');                            
-                                                                     
-var uptime = process.uptime();                                       
-  const timestamp = speed();                                         
-  const latensi = speed() - timestamp                                
-                                                                     
-const ping = moment().millisecond()
+const speed = require('performance-now');                                                                                                
 
 //Library
 const { color, bgcolor } = require("../lib/color");
@@ -169,6 +163,12 @@ module.exports = async(ltzx, msg, m) => {
 		fs.writeFileSync('./lib/json/AutoRegUser.json', JSON.stringify(pendaftar))
 	}
 	const regUser = pendaftar.length
+
+var uptime = process.uptime();                                       
+  const timestamp = speed();                                         
+  const latensi = speed() - timestamp                                
+                                                                     
+const ping = moment().millisecond()
 
 async function wikipedia(querry) {
   try {
