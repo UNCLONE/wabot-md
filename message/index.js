@@ -21,7 +21,10 @@ const fetch = require('node-fetch')
 let cheerio = require("cheerio")
 const os = require("os");                                            
 const moment = require("moment-timezone");                           
-const speed = require('performance-now');                                                                                                
+const speed = require('performance-now');
+
+const { y2mateA, y2mateV } = require('./lib/y2mate.js')
+const yts = require('yt-search')                                                                                                
 
 //Library
 const { color, bgcolor } = require("../lib/color");
