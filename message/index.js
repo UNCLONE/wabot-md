@@ -787,7 +787,7 @@ async function wikipedia(querry) {
 				break
             default:
             if (isCmd) {
-                textImg(ind.cmdNotFound(command, prefix))
+               // textImg(ind.cmdNotFound(command, prefix))
             }
         }
     } catch (err) {
