@@ -19,8 +19,7 @@ const xfar = require('xfarr-api');
 const axios = require('axios')
 const fetch = require('node-fetch')
 let cheerio = require("cheerio")
-const os = require("os");                                            
-const moment = require("moment-timezone");                           
+const os = require("os");                                                                       
 const speed = require('performance-now');
 
 const { y2mateA, y2mateV } = require('./lib/y2mate.js')
