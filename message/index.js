@@ -551,7 +551,7 @@ async function wikipedia(querry) {
             case 'tiktok':
  		if (!q) return textImg(ind.wrongFormat(prefix))
                 if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
-                if (!q.includes('twitter.com')) return textImg(ind.wrongFormat(prefix))
+                if (!q.includes('tiktok.com')) return textImg(ind.wrongFormat(prefix))
                 await textImg(ind.wait())
 		ttdownloader(q)
     		.then(async result => {
@@ -568,7 +568,7 @@ async function wikipedia(querry) {
     case 'tiktokaudio':
  		if (!q) return textImg(ind.wrongFormat(prefix))
                 if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
-                if (!q.includes('twitter.com')) return textImg(ind.wrongFormat(prefix))
+                if (!q.includes('tiktok.com')) return textImg(ind.wrongFormat(prefix))
                 await textImg(ind.wait())
  		ttdownloader(q)
     		.then(async result => {
