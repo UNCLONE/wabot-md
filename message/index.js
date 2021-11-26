@@ -163,8 +163,7 @@ module.exports = async(ltzx, msg, m) => {
 		fs.writeFileSync('./lib/json/AutoRegUser.json', JSON.stringify(pendaftar))
 	}
 	const regUser = pendaftar.length
-
-var uptime = process.uptime();                                       
+                                       
   const timestamp = speed();                                         
   const latensi = speed() - timestamp                                
                                                                      
