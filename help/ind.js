@@ -1,3 +1,5 @@
+const os = require('os')
+
 exports.wait = () => {
     return `⏳ Mohon tunggu sebentar~`
 }
@@ -76,7 +78,7 @@ exports.notNum = (q) => {
     return `"${q}", bukan angka!`
 }
 
-exports.listMenu = (time, date, salam, pushname, prefix, regUser) => {
+exports.listMenu = (time, date, salam, pushname, prefix, regUser, ping, latensi) => {
    let i = 0
     return `
 *Selamat ${salam} ${pushname} 👋*
@@ -84,8 +86,12 @@ exports.listMenu = (time, date, salam, pushname, prefix, regUser) => {
 • *Time : ${time}*
 • *Date : ${date}*
 • *User : ${regUser} User*
+• *Ping : ${ping} MS*                                               
+• *Speed : ${latensi.toFixed(4)} Second*                             
+• *Platform : ${os.platform()}*                                      
+• *Host : ${os.hostname()}*
 
-*📚 List-Menu Chika Beta :*
+*📚 List-Menu :*
 
 🤖 *INFO*
 *${i+=1}.* ${prefix}owner
