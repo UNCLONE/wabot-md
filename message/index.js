@@ -16,6 +16,8 @@ const PhoneNumber = require('awesome-phonenumber')
 const moment = require("moment-timezone");
 const { exec, spawn } = require("child_process");
 const xfar = require('xfarr-api');
+const gtts = require('node-gtts')
+const path = require('path')
 const axios = require('axios')
 const fetch = require('node-fetch')
 let cheerio = require("cheerio")
@@ -219,6 +221,21 @@ async function wikipedia(querry) {
 }
 // BY RIZKY ADI
 
+// TTS
+function tts(text, lang = 'id') {
+  console.log(lang, text)
+  return new Promise((resolve, reject) => {
+    try {
+      let tts = gtts(lang)
+      let filePath = path.join(__dirname, '../lib', (1 * new Date) + '.wav')
+      tts.save(filePath, text, () => {
+        resolve(fs.readFileSync(filePath))
+        fs.unlinkSync(filePath)
+      })
+    } catch (e) { reject(e) }
+  })
+}
+
         if (isOwner){
             if (chats.startsWith("> ")){
                 console.log(color('[EVAL]'), color(moment(msg.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Dari Owner aowkoakwoak`))
@@ -240,6 +257,17 @@ async function wikipedia(querry) {
 
 	switch (command) {
             //Sistem Command
+                  case prefix+'tts':
+dtt = q.split('|')
+let res
+  try { res = await tts(dtt[0], dtt[1]) }
+  catch (e) {
+    m.reply(e + '')
+    res = await tts(text)
+  } finally {
+    sendFile(from, res, '', msg)
+  }
+                  break
                   case prefix+'test5button':
                 let butV = [
                     {
