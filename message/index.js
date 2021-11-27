@@ -257,17 +257,15 @@ function tts(text, lang = 'id') {
 
 	switch (command) {
             //Sistem Command
-                  case prefix+'tts':
-dtt = q.split('|')
-let res
-  try { res = await tts(dtt[0], dtt[1]) }
-  catch (e) {
-    m.reply(e + '')
-    res = await tts(text)
-  } finally {
+case prefix+'tts':
+if (!q) return textImg(ind.wrongFormat(prefix))
+try { 
+    const res = await tts(args[1], args[2]) 
     sendFile(from, res, '', msg)
-  }
-                  break
+} catch (err) {
+    reply(err)
+}
+break
                   case prefix+'test5button':
                 let butV = [
                     {
