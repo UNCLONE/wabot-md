@@ -549,34 +549,26 @@ async function wikipedia(querry) {
 	        break
             //Downloader
             case prefix+'tiktok':
- 		if (!q) return textImg(ind.wrongFormat(prefix))
+                if (!q) return textImg(ind.wrongFormat(prefix))
                 if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
                 if (!q.includes('tiktok.com')) return textImg(ind.wrongFormat(prefix))
                 await textImg(ind.wait())
-		ttdownloader(q)
-    		.then(async result => {
-    		const { wm, nowm, audio } = result
-    		axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
-    		.then(async (a) => {
-    		me = `*Link* : ${a.data}`
-               sendFileFromUrl(from,nowm,me,msg)
-		//hexa.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4',quoted:mek,caption:me})
-		})
-		})
-     		.catch(err => { reply(err) })
-     		break
-    case prefix+'tiktokaudio':
- 		if (!q) return textImg(ind.wrongFormat(prefix))
-                if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
-                if (!q.includes('tiktok.com')) return textImg(ind.wrongFormat(prefix))
-                await textImg(ind.wait())
- 		ttdownloader(q)
-    		.then(async result => {
-    		const { audio } = result
-            sendFileFromUrl(from,audio,'',msg)
-    		})
-     		.catch(err => { reply(err) })
-     		break
+                xfar.Tiktok(args[1]).then(async data => {
+                    let txt = `*----「 TIKTOK DOWNLOADER 」----*\n\n`
+                    txt += `*📫 Title :* ${data.title}\n`
+                    txt += `*🎞️ Type :* ${data.medias[0].extension}\n`
+                    txt += `*📟 Quality :* ${data.medias[0].quality}\n`
+                    txt += `*💾 Size :* ${data.medias[0].formattedSize}\n`
+                    txt += `*📚 Url :* ${data.url}`
+                    sendFileFromUrl(from, data.medias[0].url, txt, msg)
+                })
+                .catch((err) => {
+                    //for (let x of ownerNumber) {
+                    //    sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
+                    //}
+                    textImg(err)
+                })
+            break
             case prefix+'facebook': case prefix+'fb': case prefix+'fbdl': case prefix+'facebookdl':
                 if (!q) return textImg(ind.wrongFormat(prefix))
                 if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
