@@ -585,10 +585,9 @@ break
         if (!q.includes('tiktok.com')) return textImg(ind.wrongFormat(prefix))
         await textImg(ind.wait())
 		hx.ttdownloader(q)
-    		.then(async res => {
-		sendFileFromUrl(from, Json(res.nowm), 'Success', msg)
-		})
-     		.catch(e => console.log(e))
+                .then(async res => {
+sendFileFromUrl(from, JSON.stringify(res.nowm), 'success', msg)
+}).catch((err) => { reply(err) })
      		break
     case prefix+'tiktokaudio':
  		if (!q) return textImg(ind.wrongFormat(prefix))
@@ -599,7 +598,7 @@ break
     		.then(async res => {
             sendFileFromUrl(from, Json(res.audio), '', msg)
     		})
-     		.catch(e => console.log(e))
+     		.catch((err) => { reply(err) })
      		break
             case prefix+'facebook': case prefix+'fb': case prefix+'fbdl': case prefix+'facebookdl':
                 if (!q) return textImg(ind.wrongFormat(prefix))
