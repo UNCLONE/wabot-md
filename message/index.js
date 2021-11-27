@@ -238,7 +238,7 @@ async function wikipedia(querry) {
 
 	switch (command) {
             //Sistem Command
-                  case 'test5button':
+                  case prefix+'test5button':
                 let butV = [
                     {
                         "urlButton": {
