@@ -149,6 +149,7 @@ module.exports = async(ltzx, msg, m) => {
                 return chika.sendMessage(from, { document: await getBuffer(url), mimetype: mime, caption: caption, mentions: men ? men : []}, {quoted: msg })
             }
         }
+        const sendFile = sendFileFromUrl
 
         const sendButton = (type, from, text, buttons, men, quoted, options) => { 
             if (type == 'image') {
