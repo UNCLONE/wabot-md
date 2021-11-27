@@ -113,6 +113,9 @@ module.exports = async(ltzx, msg, m) => {
         const sendMess = (from, teks) => {
              return chika.sendMessage(from, { text: teks })
         }
+        const Json = (json) => {
+             return JSON.stringify(json)
+        }
         //let capt, gambar;
           //capt = 'test button 5'
           //gambar = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb6f93asR9RyFlatpRvBWb5hZA42HvwFuWXQ&usqp=CAU'
@@ -582,14 +585,8 @@ break
         if (!q.includes('tiktok.com')) return textImg(ind.wrongFormat(prefix))
         await textImg(ind.wait())
 		hx.ttdownloader(q)
-    		.then(async result => {
-    		const { wm, nowm, audio } = result
-    		//axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
-    		.then(async (a) => {
-    		const me = `*Link* : ${a.data}`
-		//ltzx.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4',quoted:mek,caption:me})
-		sendFileFromUrl(from, nowm, me, msg)
-		})
+    		.then(async res => {
+		sendFileFromUrl(from, Json(res.nowm), 'Success', msg)
 		})
      		.catch(e => console.log(e))
      		break
@@ -599,10 +596,8 @@ break
          if (!q.includes('tiktok.com')) return textImg(ind.wrongFormat(prefix))
          await textImg(ind.wait())
  		hx.ttdownloader(q)
-    		.then(async result => {
-    		const { audio} = result
-            //sendFile(from,audio,'')
-            sendFileFromUrl(from, audio, '', msg)
+    		.then(async res => {
+            sendFileFromUrl(from, Json(res.audio), '', msg)
     		})
      		.catch(e => console.log(e))
      		break
