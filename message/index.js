@@ -668,28 +668,24 @@ sendFileFromUrl(from, JSON.stringify(res.nowm), 'success', msg)
                 })
             break
 */
-case prefix+'ytsearch':
-			if (!q) return reply('Tolong masukan query!')
-			var srch = q
-			try {
-        	var aramas = await yts(srch);
-   			} catch {
-        	return await reply('Error!')
-    		}
-    		aramat = aramas.all 
-    		var tbuff = await getBuffer(aramat[0].image)
-    		var ytresult = '';
-    		ytresult += '「 *YOUTUBE SEARCH* 」'
-    		ytresult += '\n________________________\n\n'
-   			aramas.all.map((video) => {
-        	ytresult += '❏ Title: ' + video.title + '\n'
-            ytresult += '❏ Link: ' + video.url + '\n'
-            ytresult += '❏ Durasi: ' + video.timestamp + '\n'
-            ytresult += '❏ Upload: ' + video.ago + '\n________________________\n\n'
-    		});
-    		ytresult += ''
-    		await textImg(tbuff,ytresult)
-			break
+
+case 'play':
+			if (!q) return textImg(ind.wrongFormat(prefix))
+    		const aramas = await yts(q);
+    		const aramat = aramas.all 
+   			const startplay = aramat[0].url	
+                    yta(startplay)
+                    .then((res) => {
+                        const { dl_link, thumb, title, filesizeF, filesize } = res
+                        axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
+                        .then(async (a) => {
+                        if (Number(filesize) >= 50000) return sendFileFromUrl(from, thumb, `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam mektuk link_`, msg)
+                        const captions = `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Size* : ${filesizeF}\n*Link* : ${a.data}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
+                        sendFileFromUrl(from, thumb, captions, msg)
+                        await sendFileFromUrl(from, dl_link, '', msg).catch((err) => reply(err))
+                        })                
+                        })
+                   break
 				
 				case prefix+'ytmp4':
 			if (!q) return textImg(ind.wrongFormat(prefix))
