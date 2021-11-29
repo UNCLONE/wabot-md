@@ -16,7 +16,6 @@ const PhoneNumber = require('awesome-phonenumber')
 const moment = require("moment-timezone");
 const { exec, spawn } = require("child_process");
 const xfar = require('xfarr-api');
-const gtts = require('node-gtts')
 const path = require('path')
 const axios = require('axios')
 const fetch = require('node-fetch')
@@ -224,20 +223,6 @@ async function wikipedia(querry) {
 }
 // BY RIZKY ADI
 
-// TTS
-function tts(text, lang = 'id') {
-  console.log(lang, text)
-  return new Promise((resolve, reject) => {
-    try {
-      let tts = gtts(lang)
-      let filePath = path.join(__dirname, '../lib', (1 * new Date) + '.wav')
-      tts.save(filePath, text, () => {
-        resolve(fs.readFileSync(filePath))
-        fs.unlinkSync(filePath)
-      })
-    } catch (e) { reject(e) }
-  })
-}
 
         if (isOwner){
             if (chats.startsWith("> ")){
@@ -260,15 +245,6 @@ function tts(text, lang = 'id') {
 
 	switch (command) {
             //Sistem Command
-case prefix+'tts':
-if (!q) return textImg(ind.wrongFormat(prefix))
-try { 
-    const res = await tts(args[1], args[2]) 
-    sendFile(from, res, '', msg)
-} catch (err) {
-    reply(err)
-}
-break
                   case prefix+'test5button':
                 let butV = [
                     {
