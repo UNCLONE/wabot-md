@@ -489,7 +489,7 @@ async function wikipedia(querry) {
                     await sendFileFromUrl(from,data[0].thumbnail,txt,msg)
                 })
                 .catch((err) => {
-                    textImg(``tidak dapat menemukan drakor ${q}`)
+                    textImg(`tidak dapat menemukan drakor ${q}`)
                 })
             break
             case prefix+'webtonsearch': case prefix+'webtoon':
@@ -507,7 +507,7 @@ async function wikipedia(querry) {
                     await textImg(txt)
                 })
                 .catch((err) => {
-                    textImg(`tidak dapat menemukan webtoon ${q})
+                    textImg(`tidak dapat menemukan webtoon ${q}`)
                 })
             break
             //Convert and Media
