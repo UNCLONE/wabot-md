@@ -88,7 +88,7 @@ module.exports = async(ltzx, msg, m) => {
 	const isUrl = (uri) => {
 	    return uri.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/, 'gi'))
 	}
-        const jsonformat = (json) => {
+        const Json = (json) => {
             return JSON.stringify(json, null, 2)
         }
 
@@ -111,9 +111,6 @@ module.exports = async(ltzx, msg, m) => {
         }
         const sendMess = (from, teks) => {
              return chika.sendMessage(from, { text: teks })
-        }
-        const Json = (json) => {
-             return JSON.stringify(json)
         }
         //let capt, gambar;
           //capt = 'test button 5'
