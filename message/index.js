@@ -670,21 +670,30 @@ sendFileFromUrl(from, JSON.stringify(res.nowm), 'success', msg)
 */
 
 case 'play':
-			if (!q) return textImg(ind.wrongFormat(prefix))
+		if (!q) return textImg(ind.wrongFormat(prefix))
     		const aramas = await yts(q);
     		const aramat = aramas.all 
    			const startplay = aramat[0].url	
+                if (isGroup) {
+                	let buttons = [
+                        {buttonId: `${prefix}ytmp3 ${startplay}`, buttonText: {displayText: 'Audio'}, type: 1},
+                        {buttonId: `${prefix}ytmp4 ${startplay}`, buttonText: {displayText: 'Video' }, type: 1}
+                    ]
+                    const resplay = `*--------「 YT-PLAY 」--------*\n\n*📫 Title :* ${aramat[0].title}\n*🎞️ Type :* ${aramat[0].type}\n*📟 Duration :* ${aramat[0].timestamp}\n*📮Upload :* ${aramat[0].ago}`
+                    sendButton('location', from, resplay, buttons, [sender], await getBuffer(aramat[0].image))
+                } else {
                     yta(startplay)
                     .then((res) => {
                         const { dl_link, thumb, title, filesizeF, filesize } = res
                         axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
                         .then(async (a) => {
-                        if (Number(filesize) >= 50000) return sendFileFromUrl(from, thumb, `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam mektuk link_`, msg)
+                        if (Number(filesize) >= 50000) return sendFileFromUrl(from, thumb, `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas dikirim dalam bentuk link_`, msg)
                         const captions = `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Size* : ${filesizeF}\n*Link* : ${a.data}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
                         sendFileFromUrl(from, thumb, captions, msg)
                         await sendFileFromUrl(from, dl_link, '', msg).catch((err) => reply(err))
                         })                
                         })
+                }
                    break
 				
 				case prefix+'ytmp4':
