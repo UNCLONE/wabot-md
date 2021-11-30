@@ -645,7 +645,7 @@ sendFileFromUrl(from, JSON.stringify(res.nowm), 'success', msg)
             break
 */
 
-case 'play':
+case prefix+'play':
 		if (!q) return textImg(ind.wrongFormat(prefix))
     		const aramas = await yts(q);
     		const aramat = aramas.all 
