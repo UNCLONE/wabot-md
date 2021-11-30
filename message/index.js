@@ -393,10 +393,7 @@ async function wikipedia(querry) {
                     await sendFileFromUrl(from,data[0].thumbnail,txt,msg)
                 })
                 .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
+                    textImg(`Tidak dapat menemukan anime ${q}`)
                 })
             break
             case prefix+'character': case prefix+'karakter':
@@ -411,10 +408,7 @@ async function wikipedia(querry) {
                     await sendFileFromUrl(from,data[0].thumbnail,txt,msg)
                 })
                 .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
+                    textImg(`Tidak dapat menemukan chara ${q}`)
                 })
             break
             case prefix+'manga':
@@ -432,7 +426,7 @@ async function wikipedia(querry) {
                    // for (let x of ownerNumber) {
                    //     sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
                    // }
-                    textImg(err)
+                    textImg(`tidak dapat menemukan manga ${q}`)
                 })
             break
             //Misc
@@ -451,10 +445,7 @@ async function wikipedia(querry) {
                     await sendFileFromUrl(from,data[0].thumb,txt,msg)
                 })
                 .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
+                    textImg(`tidak dapat menemukan film ${q}`)
                 })
             break
             case prefix+'pinterest': case prefix+'pin':
@@ -464,10 +455,7 @@ async function wikipedia(querry) {
                     await sendFileFromUrl(from,data.url,ind.ok(),msg)
                 })
                 .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
+                    textImg(`tidak dapat menemukan gambar ${q}`)
                 })
             break
             case prefix+'wattpad':
@@ -487,10 +475,7 @@ async function wikipedia(querry) {
                     await sendFileFromUrl(from,data[0].thumb,txt,msg)
                 })
                 .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
+                    textImg(`tidak dapat menemukan ${q}`)
                 })
             break
             case prefix+'drakor':
@@ -507,10 +492,7 @@ async function wikipedia(querry) {
                     await sendFileFromUrl(from,data[0].thumbnail,txt,msg)
                 })
                 .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
+                    textImg(``tidak dapat menemukan drakor ${q}`)
                 })
             break
             case prefix+'webtonsearch': case prefix+'webtoon':
@@ -528,10 +510,7 @@ async function wikipedia(querry) {
                     await textImg(txt)
                 })
                 .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
+                    textImg(`tidak dapat menemukan webtoon ${q})
                 })
             break
             //Convert and Media
