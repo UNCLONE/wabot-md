@@ -23,11 +23,10 @@ const start = async () => {
 	console.log(color('[ By Akmalz ]'))
     // set level pino ke 'fatal' kalo ga mau nampilin log eror
     const ltzx = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'warn' }), browser: [`${setting.botName} By Akmalz`], auth: state }) 
-    console.log(color('Connected....'))
     ltzx.multi = true
     ltzx.nopref = false
     ltzx.prefa = 'anjing'
-
+    console.log(color('Connected....'))
     ltzx.ev.on('messages.upsert', async m => {
     	if (!m.messages) return
         const msg = m.messages[0]
@@ -38,9 +37,10 @@ const start = async () => {
     ltzx.ev.on('connection.update', (update) => {
         const { connection, lastDisconnect } = update
         if (connection === 'close') {
-            console.log(BotLog('Koneksi terputus....'))
-            if (lastDisconnect.error?.output?.statusCode === DisconnectReason.loggedOut) console.log(BotLog('Wa web terlogout.'))
-            else start()
+            console.log(BotLog('connection closed, try to restart'))
+            lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut 
+            ? start()
+            : console.log(BotLog('Wa web terlogout.'))
         }
     })
 
