@@ -378,14 +378,12 @@ async function wikipedia(querry) {
      
             break
             //Weebs
-case prefix+'ytsearch':
+case prefix+'ytsearch': case prefix+'yts':
 if (!q) return textImg(ind.wrongFormat(prefix))
 await textImg(ind.wait())
-let ysrc = await yts(q);
-let ysrch = ysrc.all
-ysrch.then(async damta => {
+yts(q).then(async damta => {
                     let txt = `*----「 YT-SEARCH 」----*\n\n`
-                    for (let i of damta) {
+                    for (let i of damta.all) {
                         txt += `*📫 Title :* ${i.title}\n`
                         txt += `*👀 Views :* ${i.views}\n`
                         txt += `*⏳Time :* ${i.timestamp}\n`
@@ -394,7 +392,7 @@ ysrch.then(async damta => {
                         txt += `*📚 Url :* ${i.url}\n`
                         txt += `*🏷️ Description :* ${i.description}\n -----------------------------------------------------\n`
                     }
-                    await sendFileFromUrl(from,ysrch[0].image,txt,msg)
+                    await sendFileFromUrl(from,damta.all[0].image,txt,msg)
                 })
                 .catch((err) => {
                     textImg(`tidak dapat menemukan ${q}\n\nTerminal Log :\n${err}`)
