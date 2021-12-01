@@ -289,7 +289,7 @@ async function wikipedia(querry) {
             break
             case prefix+'owner':
                 for (let x of ownerNumber) {
-                    sendContact(from, x.split('@s.whatsapp.net')[0], 'Owner of - ' + botNumber, msg)
+                    sendContact(from, x.split('@s.whatsapp.net')[0], 'Owner of - ' + botName, msg)
                 }
             break
             case prefix+'menu': case prefix+'help':{
