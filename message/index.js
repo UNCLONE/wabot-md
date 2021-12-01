@@ -734,9 +734,12 @@ case prefix+'play':
 				}
 				break
             default:
-            if (isCmd) {
+if (chats.startsWith('p','P')) {
+   textImg(`Iya ada apa? ketik *${prefix}menu* untuk menggunakan bot`)
+}
+            //if (isCmd) {
                // textImg(ind.cmdNotFound(command, prefix))
-            }
+            //}
         }
     } catch (err) {
         console.log(color('[ERROR]', 'red'), err)
