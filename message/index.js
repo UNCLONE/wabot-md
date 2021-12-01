@@ -557,8 +557,11 @@ break
         if (!q.includes('tiktok.com')) return textImg(ind.wrongFormat(prefix))
         await textImg(ind.wait())
 		hx.ttdownloader(q)
-                .then(async res => {
-sendFileFromUrl(from, JSON.stringify(res.nowm), 'success', msg)
+                .then(async (res) => {
+		    axios.get(`https://tinyurl.com/api-create.php?url=${Json(res.nowm)}`)
+		.then((a) => {
+		    sendFileFromUrl(from, a.data, '', msg)
+})
 }).catch((err) => { reply(err) })
      		break
     case prefix+'tiktokaudio':
