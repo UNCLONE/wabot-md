@@ -378,6 +378,26 @@ async function wikipedia(querry) {
      
             break
             //Weebs
+case prefix+'ytsearch':
+if (!q) return textImg(ind.wrongFormat(prefix))
+await textImg(ind.wait())
+yts(q).then(async data => {
+                    let txt = `*----「 YT-SEARCH 」----*\n\n`
+                    for (let i of data) {
+                        txt += `*📫 Title :* ${i.all.title}\n`
+                        txt += `*👀 Views :* ${i.all.views}\n`
+                        txt += `*⏳Time :* ${i.all.timestamp}\n`
+                        txt += `*🗣️ ID :* ${i.all.videoId}\n`
+                        txt += `*📮 Upload :* ${i.all.ago}\n`
+                        txt += `*📚 Url :* ${i.all.url}\n`
+                        txt += `*🏷️ Description :* ${i.all.description}\n -----------------------------------------------------\n`
+                    }
+                    await sendFileFromUrl(from,data.all[0].image,txt,msg)
+                })
+                .catch((err) => {
+                    textImg(`tidak dapat menemukan ${q}\n\nTerminal Log :\n${err}`)
+                })
+break
             case prefix+'anime':
                 if (!q) return textImg(ind.wrongFormat(prefix))
                 await textImg(ind.wait())
@@ -411,7 +431,7 @@ async function wikipedia(querry) {
             case prefix+'manga':
                 if (!q) return textImg(ind.wrongFormat(prefix))
                 await textImg(ind.wait())
-                xfar.Manga('naruto').then(async data => {
+                xfar.Manga(q).then(async data => {
                     let txt = `*------「 MANGA-SEARCH 」------*\n\n`
                     for (let i of data) {
                          txt += `*📫 Title :* ${i.judul}\n`
@@ -644,25 +664,7 @@ sendFileFromUrl(from, JSON.stringify(res.nowm), 'success', msg)
                 })
             break
 */
-case prefix+'ytsearch':
-if (!q) return textImg(ind.wrongFormat(prefix))
-yts(q).then(async data => {
-                    let txt = `*----「 YT-SEARCH 」----*\n\n`
-                    for (let i of data) {
-                        txt += `*📫 Title :* ${i.all.title}\n`
-                        txt += `*👀 Views :* ${i.all.views}\n`
-                        txt += `*⏳Time :* ${i.all.timestamp}\n`
-                        txt += `*🗣️ ID :* ${i.all.videoId}\n`
-                        txt += `*📮 Upload :* ${i.all.ago}\n`
-                        txt += `*📚 Url :* ${i.all.url}\n`
-                        txt += `*🏷️ Description :* ${i.all.description}\n -----------------------------------------------------\n`
-                    }
-                    await sendFileFromUrl(from,data.all[0].image,txt,msg)
-                })
-                .catch((err) => {
-                    textImg(`tidak dapat menemukan ${q}`)
-                })
-break
+
 case prefix+'play':
 		if (!q) return textImg(ind.wrongFormat(prefix))
     		const aramas = await yts(q);
