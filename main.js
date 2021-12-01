@@ -21,8 +21,8 @@ const start = async () => {
 		whitespaceBreak: false
 	}), 'cyan'))
 	console.log(color('[ By Akmalz ]'))
-    // set level pino ke 'fatal' kalo ga mau nampilin log eror
-    const ltzx = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'warn' }), browser: [`${setting.botName} By Akmalz`], auth: state }) 
+    // level pino 'fatal','warn', 'debug'
+    const ltzx = makeWASocket({ printQRInTerminal: true, logger: P({ level: 'debug' }), browser: [`${setting.botName} By Akmalz`], auth: state }) 
     ltzx.multi = true
     ltzx.nopref = false
     ltzx.prefa = 'anjing'
