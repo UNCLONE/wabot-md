@@ -92,7 +92,7 @@ exports.listMenu = (time, date, salam, pushname, prefix, regUser, ping, latensi)
 • *Host : ${os.hostname()}*
 
 *Source Code?*
-https://github.com/Dvnz99/wabot-md
+https://github.com/Akmall-236/wabot-md
 
 *📚 List-Menu :*
 
