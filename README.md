@@ -69,6 +69,15 @@ npm install
 node main
 ```
 
+## For Heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Akmall-236/wabot-md/)
+
+**Buildpack**
+```sh
+> https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest
+> https://github.com/clhuang/heroku-buildpack-webp-binaries.git
+```
+
 ## For VPS
 ```bash
 apt install nodejs git ffmpeg
