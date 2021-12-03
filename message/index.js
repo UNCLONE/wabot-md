@@ -679,7 +679,7 @@ case prefix+'play':
                         {buttonId: `${prefix}ytmp4 ${startplay}`, buttonText: {displayText: 'Video' }, type: 1}
                     ]
                     const resplay = `*--------「 YT-PLAY 」--------*\n\n*📫 Title :* ${aramat[0].title}\n*🎞️ Type :* ${aramat[0].type}\n*📟 Duration :* ${aramat[0].timestamp}\n*📮Upload :* ${aramat[0].ago}`
-                    sendButton('location', from, resplay, buttons, [sender], await getBuffer(aramat[0].image))
+                    chika.sendMessage(from, { caption: resplay, location: { jpegThumbnail: await getBuffer(aramat[0].image) }, buttons: buttons, headerType: 'LOCATION', mentions: [sender] })
                 } else {
                     yta(startplay)
                     .then((res) => {
