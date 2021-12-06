@@ -38,7 +38,7 @@ const start = async () => {
         const { connection, lastDisconnect } = update
         if (connection === 'close') {
             console.log(BotLog('connection closed, try to restart'))
-            lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut 
+            lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut
             ? start()
             : console.log(BotLog('Wa web terlogout.'))
         }
