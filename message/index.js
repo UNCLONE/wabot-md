@@ -112,15 +112,6 @@ module.exports = async(ltzx, msg, m) => {
         const sendMess = (from, teks) => {
              return chika.sendMessage(from, { text: teks })
         }
-        //let capt, gambar;
-          //capt = 'test button 5'
-          //gambar = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb6f93asR9RyFlatpRvBWb5hZA42HvwFuWXQ&usqp=CAU'
-          let gambar_ = fs.readFileSync(setting.pathImg) // getBuffer(gambar);
-          let Hasil = gambar_
-        const buttonWA_ = (from, caption, button) => {
-            let butfive = ltzx.generateWAMessageFromContent(from, { "templateMessage": { "hydratedTemplate": {"imageMessage": Hasil, "hydratedContentText": caption, "hydratedFooterText": `*© ${setting.botName}*`,"hydratedButtons": button }, "hydratedFourRowTemplate": {"imageMessage": Hasil, "hydratedContentText": caption, "hydratedButtons": button }}}, {quoted: msg})
-            return ltzx.relayMessage(butfive, {waitForAck: true})
-        }
 
         const sendContact = (jid, numbers, name, quoted, men) => {
             let number = numbers.replace(/[^0-9]/g, '')
@@ -166,6 +157,17 @@ module.exports = async(ltzx, msg, m) => {
             } else {
                 reply('invalid type, please contact the owner bot')
             }
+        }
+
+        const buttonsDefault = [
+            { callButton: {displayText: `☎ ️Call Owner`, phoneNumber: `+628127668234`} },
+            { urlButton: { displayText: `💠 Script Bot`, url : `https://github.com/Akmall-236/wabot-md`} },
+            { quickReplyButton: { displayText: `Owner`, id: `${prefix}owner` } },
+            { quickReplyButton: { displayText: `Rules`, id: `${prefix}rules` } }
+        ]
+
+        const textTemplateButtons = (from, text, footer, buttons) => {
+            return chika.sendMessage(from, { text: text, footer: footer, templateButtons: buttons })
         }
 
         if (isCmd && !isGroup) {
@@ -242,45 +244,7 @@ async function wikipedia(querry) {
 
 	switch (command) {
             //Sistem Command
-                  case prefix+'test5button':
-                let butV = [
-                    {
-                        "urlButton": {
-										"displayText": "instagram",  //5 Buttons bagian web
-										"url": "https://instagram.com/justme.akmall"
-									},
-									"index": 0
-								},
-								{
-									"callButton": { //5 Buttons bagian telepon 
-										"displayText": "number",
-										"phoneNumber": "628885960825@s.whatsapp.net"
-									},
-									"index": 1
-								},
-								{
-									"quickReplyButton": {
-										"displayText": "halo",
-										"id": ".tos"
-									},
-									"index": 2
-								},
-								{
-									"quickReplyButton": {
-										"displayText": "test2",
-										"id": ".rule"
-									},
-									"index": 3
-								},
-								{
-									"quickReplyButton": {
-										"displayText": "test3",
-										"id": ".help"
-									},
-                     }
-                  ]
-                buttonWA_(from, `Hai kak ${pushname}, selamat ${salam}`, butV)
-                break
+                  
             case prefix+'rule': case prefix+'rules':
                 textImg(ind.rules(prefix, botName))
             break
@@ -293,19 +257,8 @@ async function wikipedia(querry) {
                 }
             break
             case prefix+'menu': case prefix+'help':{
-                // I try buttonMessage in personal chats, not responding :(
-                const menyo = `Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp. Jika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏`
-                if (isGroup) {
-                    let buttons = [
-                        {buttonId: `${prefix}allmenu`, buttonText: {displayText: 'List Menu'}, type: 1},
-                        {buttonId: `${prefix}rule`, buttonText: {displayText: 'Rules Bot' }, type: 1}
-                    ]
-                    sendButton('location', from, menyo, buttons)
-               } else {
-                   textImg(`Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp. Jika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏.\n\nKetik *${prefix}allmenu* untuk membuka fitur yang tersedia`)
-                }
+                textTemplateButtons(from, `Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp.`, `Jika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏`, buttonsDefault)
             }
-            break
             case prefix+'allmenu': {
                 try {
                     var prof = await chika.profilePictureUrl(sender, 'image')
