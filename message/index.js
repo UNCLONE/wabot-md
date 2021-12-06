@@ -317,6 +317,21 @@ async function wikipedia(querry) {
                     reply(ind.wrongFormat())
                 }
             break
+            case prefix+'tagall': case prefix+'mentionall':
+                if (!isGroup) return reply(ind.groupOnly())
+                if (!isGroupAdmins && !isOwner) return reply(ind.adminOnly())
+                let teks = `══✪〘 *👥 Mention All* 〙✪══\n\n➲ *Message : ${q ? q : 'Nothing'}*\n\n`
+		      	for (let mem of groupMembers) {
+		            teks += `࿃➡️ @${mem.id.split('@')[0]}\n`
+				}
+                teks += `\n⋙ *${botName}* ⋘`
+                chika.sendMessage(from, { text: teks, mentions: groupMembers.map(a => a.id) }, { quoted: msg })
+            break
+            case prefix+'hidetag': case prefix+'tag':
+                if (!isGroup) return reply(ind.groupOnly())
+                if (!isGroupAdmins && !isOwner) return reply(ind.adminOnly())
+                chika.sendMessage(from, { text : q ? q : '' , mentions: groupMembers.map(a => a.id)})
+            break
             // Education
             case prefix+'wiki':
                 if (!q) return textImg(ind.wrongFormat(prefix))
