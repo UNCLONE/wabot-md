@@ -162,7 +162,7 @@ module.exports = async(ltzx, msg, m) => {
         const buttonsDefault = [
             { callButton: {displayText: `☎ ️Call Owner`, phoneNumber: `+628885960825`} },
             { urlButton: { displayText: `💠 Script Bot`, url : `https://github.com/Akmall-236/wabot-md`} },
-            { quickReplyButton: { displayText: `Owner`, id: `${prefix}owner` } },
+            { quickReplyButton: { displayText: `Menu`, id: `${prefix}allmenu` } },
             { quickReplyButton: { displayText: `Rules`, id: `${prefix}rules` } }
         ]
 
