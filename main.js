@@ -12,6 +12,19 @@ let setting = JSON.parse(fs.readFileSync('./config.json'));
 let sesion = `./${setting.sessionName}.json`
 const { state, saveState } = useSingleFileAuthState(sesion)
 
+> // Message Loader
+let messageFolder = path.join(__dirname, '../message')
+let messageFilter = filename => /\.js$/.test(filename)
+global.messages = {}
+for (let filename of fs.readdirSync(messageFolder).filter(messageFilter)) {
+  try {
+    global.message[filename] = require(path.join(messageFolder, filename))
+  } catch (e) {
+    conn.logger.error(e)
+    delete global.message[filename]
+  }
+}
+
 const start = async () => {
     //Meng weem
 	console.log(color(figlet.textSync(setting.botName + ' MD', {
