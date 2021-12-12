@@ -705,7 +705,7 @@ case prefix+'play':
 				}
 				break
             default:
-if (chats.startsWith('p','P')) {
+if (chats.includes('p','P')) {
    textImg(`Iya ada apa? ketik *${prefix}menu* untuk menggunakan bot`)
 }
             //if (isCmd) {
