@@ -5,6 +5,7 @@ Numpang Recode bang github: rashidsiregar28
 "use strict";
 const { default: makeWASocket, BufferJSON, initInMemoryKeyStore, DisconnectReason, AnyMessageContent, delay, useSingleFileAuthState } = require("@adiwajshing/baileys-md")
 const figlet = require("figlet");
+const path = require('path');
 const fs = require("fs");
 const P = require('pino')
 const { color, BotLog } = require("./lib/color");
