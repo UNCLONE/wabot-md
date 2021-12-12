@@ -12,7 +12,7 @@ let setting = JSON.parse(fs.readFileSync('./config.json'));
 let sesion = `./${setting.sessionName}.json`
 const { state, saveState } = useSingleFileAuthState(sesion)
 
-> // Message Loader
+// Message Loader
 let messageFolder = path.join(__dirname, '../message')
 let messageFilter = filename => /\.js$/.test(filename)
 global.messages = {}
