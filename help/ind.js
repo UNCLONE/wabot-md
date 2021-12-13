@@ -139,6 +139,7 @@ https://github.com/Akmall-236/wabot-md
 
 🙏 *THANKS*
 • Xfarr api
+• Rashid Siregar
 • Baileys#multi-device
 • and all support
 `
