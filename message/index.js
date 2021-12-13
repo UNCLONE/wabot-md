@@ -85,6 +85,8 @@ module.exports = async(ltzx, msg, m) => {
 	const isGroupAdmins = groupAdmins.includes(sender) || false
         const isOwner = ownerNumber.includes(sender)
 
+        ltzx.sendReadReceipt(from, sender, [msg.key.id])
+
 	const isUrl = (uri) => {
 	    return uri.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/, 'gi'))
 	}
