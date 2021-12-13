@@ -192,7 +192,7 @@ module.exports = async(ltzx, msg, m) => {
                                                                      
 const ping = moment().millisecond()
 
-const runtime = function(seconds) {
+const _runtime = function(seconds) {
 	seconds = Number(seconds);
 	var d = Math.floor(seconds / (3600 * 24));
 	var h = Math.floor(seconds % (3600 * 24) / 3600);
@@ -204,6 +204,7 @@ const runtime = function(seconds) {
 	// var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
 	return dDisplay + hDisplay + mDisplay;
 }
+let runtime = _runtime(process.uptime())
 
 async function wikipedia(querry) {
   try {
@@ -274,13 +275,14 @@ async function wikipedia(querry) {
             case prefix+'menu': case prefix+'help':{
                 textTemplateButtons(from, `Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp.`, `Jika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏`, buttonsDefault)
             }
+            break
             case prefix+'allmenu': {
                 try {
                     var prof = await chika.profilePictureUrl(sender, 'image')
                 } catch {
                     var prof = 'https://i.ibb.co/Tq7d7TZ/age-hananta-495-photo.png'
                 }
-                sendFileFromUrl(from, prof, ind.listMenu(time, date, salam, pushname, prefix, regUser, ping, latensi, runtime(process.uptime())), msg)
+                sendFileFromUrl(from, prof, ind.listMenu(time, date, salam, pushname, prefix, regUser, ping, latensi, runtime), msg)
             }
             break
             // Owner
