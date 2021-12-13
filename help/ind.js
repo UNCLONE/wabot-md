@@ -76,7 +76,7 @@ exports.notNum = (q) => {
     return `"${q}", bukan angka!`
 }
 
-exports.listMenu = (time, date, salam, pushname, prefix, regUser, ping, latensi) => {
+exports.listMenu = (time, date, salam, pushname, prefix, regUser, ping, latensi, runtime) => {
    let i = 0
     return `
 *Selamat ${salam} ${pushname} 👋*
@@ -88,6 +88,9 @@ exports.listMenu = (time, date, salam, pushname, prefix, regUser, ping, latensi)
 • *Speed : ${latensi.toFixed(4)} Second*                             
 • *Platform : ${os.platform()}*                                      
 • *Host : ${os.hostname()}*
+
+• *Bot aktif selama :*
+   ${runtime}
 
 • *Website :*
    https://akmalz.rf.gd
