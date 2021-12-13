@@ -1,0 +1,7 @@
+{
+  "name": "wabot-MD",
+  "description": "WhatsApp Bot Beta Multi Device",
+  "repository": "https://github.com/akmall-236/wabot-md",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["bot", "whatsapp", "whatsapp-bot"]
+}
