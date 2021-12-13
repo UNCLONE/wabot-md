@@ -89,6 +89,9 @@ exports.listMenu = (time, date, salam, pushname, prefix, regUser, ping, latensi)
 • *Platform : ${os.platform()}*                                      
 • *Host : ${os.hostname()}*
 
+• *Website :*
+   https://akmalz.rf.gd
+
 *📚 List-Menu :*
 
 🤖 *INFO*
