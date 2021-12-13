@@ -5,21 +5,19 @@ exports.wait = () => {
 }
 
 exports.ok = () => {
-    return `✅ Done. Ok desu~`
+    return `Done....`
 }
 
 exports.err = () => {
-    return `‼️Fitur Sedang Error‼️
-
-⏳Sedang melapor bug fitur ke owner-sama⏳`
+    return `Fitur Sedang Error`
 }
 
 exports.wrongFormat = (prefix) => {
-    return `Format salah ‼️ Silakan cek cara penggunaan di *${prefix}allmenu*.`
+    return `Format salah‼️ Silakan cek cara penggunaan di *${prefix}allmenu*.`
 }
 
 exports.emptyMess = () => {
-    return `⚠️ Harap masukkan pesan yang ingin disampaikan! ⚠️`
+    return `Harap masukkan pesan yang ingin disampaikan!`
 }
 
 exports.cmdNotFound = (cmd, prefix) => {
@@ -27,11 +25,11 @@ exports.cmdNotFound = (cmd, prefix) => {
 }
 
 exports.ownerOnly = () => {
-    return `⚠️ Command ini khusus Owner-sama! ⚠️`
+    return `Command ini khusus Owner!`
 }
 
 exports.doneOwner = () => {
-    return `✔  ️Sudah selesai, Owner-sama~`
+    return `✔ Selesai...`
 }
 
 exports.groupOnly = () => {
@@ -53,11 +51,11 @@ Total diblokir: *${blockNumber.length}* user\n`
 }
 
 exports.notAdmin = () => {
-    return `❎ User bukan seorang admin! ❎`
+    return `❎ User bukan seorang admin!`
 }
 
 exports.adminAlready = () => {
-    return `⚠️ Tidak  dapat mem-promote user yang merupakan admin! ⚠️`
+    return `Tidak  dapat mem-promote user yang merupakan admin!`
 }
 
 exports.botNotAdmin = () => {
