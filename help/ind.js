@@ -1,15 +1,15 @@
 const os = require('os')
 
 exports.wait = () => {
-    return `⏳ Mohon tunggu sebentar~`
+    return `_wait_`
 }
 
 exports.ok = () => {
-    return `Done....`
+    return `_done_`
 }
 
 exports.err = () => {
-    return `Fitur Sedang Error`
+    return `_error_`
 }
 
 exports.wrongFormat = (prefix) => {
@@ -45,7 +45,7 @@ exports.nhFalse = () => {
 }
 
 exports.listBlock = (blockNumber) => {
-    return `*── 「 HALL OF SHAME 」 ──*
+    return `*── 「 ✓ 」 ──*
     
 Total diblokir: *${blockNumber.length}* user\n`
 }
@@ -79,23 +79,11 @@ exports.notNum = (q) => {
 exports.listMenu = (time, date, salam, pushname, prefix, regUser, ping, latensi, runtime) => {
    let i = 0
     return `
-*Selamat ${salam} ${pushname} 👋*
+*Selamat ${salam} ${pushname}                                         
 
-• *Time : ${time}*
-• *Date : ${date}*
-• *User : ${regUser} User*
-• *Ping : ${ping} MS*                                               
-• *Speed : ${latensi.toFixed(4)} Second*                             
-• *Platform : ${os.platform()}*                                      
-• *Host : ${os.hostname()}*
+• *Bantu SubScribe*
+   Link : https://youtube.com/c/ismailkurama
 
-• *Bot aktif selama :*
-   ${runtime}
-
-• *Website :*
-   https://akmalz.rf.gd
-
-*📚 List-Menu :*
 
 🤖 *INFO*
 *${i+=1}.* ${prefix}owner
@@ -137,12 +125,6 @@ exports.listMenu = (time, date, salam, pushname, prefix, regUser, ping, latensi,
 *${i+=1}.* ${prefix}facebook *link*
 *${i+=1}.* ${prefix}twitter *link*
 *${i+=1}.* ${prefix}instagram *link*
-
-🙏 *THANKS*
-• Xfarr api
-• Rashid Siregar
-• Baileys#multi-device
-• and all support
 `
 }
 
@@ -192,8 +174,7 @@ exports.tos = (ownerNumber, prefix) => {
 
 Hai 👋
 Kalian bisa mendukung saya agar bot ini tetap up to date dengan:
-0888-5960-825 (Smartfren/Dana/GoPay)
-0813-2663-5396 (Telkomsel)
+0838-0527-9906 (Pulsa10k)
 
 Berapapun donasi kalian akan sangat berarti 👍
 
