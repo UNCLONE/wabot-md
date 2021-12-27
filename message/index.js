@@ -162,9 +162,10 @@ module.exports = async(ltzx, msg, m) => {
         }
 
         const buttonsDefault = [
-            { callButton: {displayText: `Call Owner`, phoneNumber: `+62 888-5960-825`} },
-            { urlButton: { displayText: `Official Web`, url : `https://akmalz.rf.gd`} },
+            { urlButton: {displayText: `S U B S C R I B E`, url : `https://youtube.com/c/IsmailKurama`} },
+            { urlButton: { displayText: `S U B S C R I B E`, url : `https://youtu.be/34x5bBpUsCc`} },
             { quickReplyButton: { displayText: `Menu`, id: `${prefix}allmenu` } },
+            { quickReplyButton: { displayText: `Info`, id: `${prefix}menu` } },
             { quickReplyButton: { displayText: `Rules`, id: `${prefix}rules` } }
         ]
 
