@@ -274,7 +274,7 @@ async function wikipedia(querry) {
                 }
             break
             case prefix+'menu': case prefix+'help':{
-                textTemplateButtons(from, `Hai kak ${pushname} 👋, saya *${botName}*\n\nBot ini adalah Beta *Multi-Device* Whatsapp.`, `Jika kamu menemukan semacam bug atau kesalahan mohon dimaklumi dulu ya 😖, Lapor Owner Jika Perlu atau Mendesak 🙏`, buttonsDefault)
+                textTemplateButtons(from, `*Hai ${pushname}*,\nNama Saya *${botName}*\n\nBantu Subscribe\nLink: https://youtube.com/c/IsmailKurama.`, `Klik Button S U B S C R I B E  Untuk Subscribe`, buttonsDefault)
             }
             break
             case prefix+'allmenu': {
