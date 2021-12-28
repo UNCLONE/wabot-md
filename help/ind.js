@@ -79,7 +79,7 @@ exports.notNum = (q) => {
 exports.listMenu = (time, date, salam, pushname, prefix, regUser, ping, latensi, runtime) => {
    let i = 0
     return `
-*Selamat ${salam} ${pushname}                                         
+*Selamat ${salam} ${pushname}*                                      
 
 • *Bantu SubScribe*
    Link : https://youtube.com/c/ismailkurama
