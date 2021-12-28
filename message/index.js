@@ -163,7 +163,6 @@ module.exports = async(ltzx, msg, m) => {
 
         const buttonsDefault = [
             { urlButton: {displayText: `S U B S C R I B E`, url : `https://youtube.com/c/IsmailKurama`} },
-            { urlButton: {displayText: `S U B S C R I B E`, url : `https://youtube.com/c/IsmailKurama`} },
             { urlButton: {displayText: `S U B S C R I B E`, url : `https://youtu.be/34x5bBpUsCc`} },
             { quickReplyButton: { displayText: `Menu`, id: `${prefix}allmenu` } },
             { quickReplyButton: { displayText: `Menu`, id: `${prefix}allmenu` } },
