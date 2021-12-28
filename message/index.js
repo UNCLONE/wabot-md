@@ -726,6 +726,9 @@ case prefix+'play':
 if (chats == 'p') {
    textImg(`Iya ada apa? ketik *${prefix}menu* untuk menggunakan bot`)
 }
+if (chats == 'Amsa') {
+   textImg(`Iya ada apa`)
+}
 if (chats == 'P') {
    textImg(`Iya ada apa? ketik *${prefix}menu* untuk menggunakan bot`)
 }
