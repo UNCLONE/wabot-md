@@ -164,9 +164,9 @@ module.exports = async(ltzx, msg, m) => {
         const buttonsDefault = [
             { urlButton: {displayText: `S U B S C R I B E`, url : `https://youtube.com/c/IsmailKurama`} },
             { urlButton: {displayText: `S U B S C R I B E`, url : `https://youtu.be/34x5bBpUsCc`} },
-            { quickReplyButton: { displayText: `◀️`, id: `${prefix}allmenu` } },
-            { quickReplyButton: { displayText: `⏯️`, id: `${prefix}allmenu` } },
-            { quickReplyButton: { displayText: `⏸️`, id: `${prefix}menu` } }
+            { quickReplyButton: { displayText: `🌿`, id: `${prefix}allmenu` } },
+            { quickReplyButton: { displayText: `☘️`, id: `${prefix}allmenu` } },
+            { quickReplyButton: { displayText: `🍃`, id: `${prefix}menu` } }
         ]
 
         const textTemplateButtons = (from, text, footer, buttons) => {
@@ -626,7 +626,7 @@ break
                     textImg(ind.err())
                 })
             break
-/*
+
             case prefix+'ytdl': case prefix+'youtubedl': case prefix+'youtube':
                 if (!isGroup) return textImg('Maaf, fitur ini mengandung button, hanya bisa digunakan dalam group\n\nGunakan fitur *${prefix}ytmp3* untuk audio atau *${prefix}ytmp4* untuk video')
                 if (!q) return textImg(ind.wrongFormat(prefix))
@@ -652,7 +652,7 @@ break
                     textImg(ind.err())
                 })
             break
-*/
+
 
 case prefix+'play':
 		if (!q) return textImg(ind.wrongFormat(prefix))
@@ -724,7 +724,46 @@ case prefix+'play':
 				break
             default:
 if (chats == 'p') {
-   textImg(`Iya ada apa? ketik *${prefix}menu* untuk menggunakan bot`)
+   textImg(`Iya ada apa? *${pushname}*`)
+}
+if (chats == 'Asalamualaikum') {
+   textImg(`Waalaikumsalam`)
+}
+if (chats == 'Mikum') {
+   textImg(`Salam`)
+}
+if (chats == 'De') {
+   textImg(`Kuy`)
+}
+if (chats == 'Sa') {
+   textImg(`Kuy`)
+}
+if (chats == 'Hi') {
+   textImg(`Hello`)
+}
+if (chats == 'Kak') {
+   textImg(`Yaa`)
+}
+if (chats == 'Hmm') {
+   textImg(`Hmmmmm`)
+}
+if (chats == 'Oke') {
+   textImg(`Oke`)
+}
+if (chats == 'Amsa') {
+   textImg(`Iya ada apa`)
+}
+if (chats == 'Amsa') {
+   textImg(`Iya ada apa`)
+}
+if (chats == 'Amsa') {
+   textImg(`Iya ada apa`)
+}
+if (chats == 'Amsa') {
+   textImg(`Iya ada apa`)
+}
+if (chats == 'Amsa') {
+   textImg(`Iya ada apa`)
 }
 if (chats == 'Amsa') {
    textImg(`Iya ada apa`)
